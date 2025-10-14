@@ -8,22 +8,22 @@ const About = () => {
     {
       category: 'Frontend',
       icon: <Globe className="w-6 h-6" />,
-      technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript']
+      technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript ES6+']
     },
     {
       category: 'Backend',
       icon: <Database className="w-6 h-6" />,
-      technologies: ['Node.js', 'Express', 'Python', 'Java', 'PHP', 'MongoDB', 'PostgreSQL']
+      technologies: ['Java 17', 'Spring Boot', 'Python', 'Flask', 'Node.js', 'REST APIs', 'JPA/Hibernate']
     },
     {
-      category: 'Mobile',
+      category: 'Mobile & Game',
       icon: <Smartphone className="w-6 h-6" />,
-      technologies: ['Flutter', 'Dart', 'React Native', 'Android Studio', 'iOS Development']
+      technologies: ['Flutter', 'Dart', 'SDL2', 'C/C++', 'Game Development', 'Firebase']
     },
     {
-      category: 'Tools & Others',
+      category: 'Tools & AI',
       icon: <GitBranch className="w-6 h-6" />,
-      technologies: ['Git', 'Docker', 'AWS', 'Firebase', 'Figma', 'VS Code']
+      technologies: ['Git/GitHub', 'Maven', 'VS Code', 'AI Integration', 'OpenAI APIs', 'Android Studio']
     }
   ];
 
@@ -58,7 +58,7 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Chi sono</h2>
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Chi sono</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
         </motion.div>
 
@@ -69,18 +69,18 @@ const About = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">La mia storia</h3>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              Sono uno sviluppatore full stack con una forte passione per la creazione di soluzioni digitali innovative. 
-              La mia esperienza spazia dal frontend al backend, dallo sviluppo web a quello mobile.
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">La mia storia</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
+              Autodidatta Aspirante Software, Mobile & Game Developer specializzato in architetture enterprise,
+              game development e AI integration con eccezionale capacità di apprendimento accelerato.
             </p>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              Mi concentro sulla scrittura di codice pulito, scalabile e maintainabile, utilizzando le migliori pratiche 
-              di sviluppo e le tecnologie più moderne del settore.
+            <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
+              Transizione carriera da zero a competenze avanzate in sviluppo full-stack, microservizi e sistemi
+              AI-powered in soli 8 mesi. Ho completato 4 progetti professionali con documentazione enterprise.
             </p>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Amo affrontare nuove sfide tecniche e sono sempre alla ricerca di opportunità per crescere 
-              professionalmente e contribuire a progetti interessanti.
+            <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+              Combino solida esperienza professionale con approccio innovativo human-AI hybrid development per
+              soluzioni software scalabili e performanti. Specializzato in clean code e risoluzione metodica di problemi complessi.
             </p>
           </motion.div>
 
@@ -123,9 +123,9 @@ const About = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <h3 className="text-3xl font-bold text-gray-900 text-center mb-12">Le mie competenze</h3>
+          <h3 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">Le mie competenze</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {skills.map((skill, index) => (
+            {skills.map((skill) => (
               <motion.div
                 key={skill.category}
                 variants={itemVariants}

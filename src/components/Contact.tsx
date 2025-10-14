@@ -37,19 +37,19 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email',
-      content: 'gianfrizio@example.com',
-      link: 'mailto:gianfrizio@example.com'
+      content: 'vittoriociampi83@gmail.com',
+      link: 'mailto:vittoriociampi83@gmail.com'
     },
     {
       icon: <Phone className="w-6 h-6" />,
       title: 'Telefono',
-      content: '+39 123 456 7890',
-      link: 'tel:+39123456789'
+      content: '+39 339 526 0163',
+      link: 'tel:+393395260163'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
       title: 'Posizione',
-      content: 'Italia',
+      content: 'Aprilia (LT), Italia',
       link: '#'
     }
   ];
@@ -64,13 +64,13 @@ const Contact = () => {
     {
       icon: <Linkedin className="w-6 h-6" />,
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/gianfrizio',
+      url: 'https://linkedin.com/in/vittorio-ciampi',
       color: 'hover:text-blue-600'
     },
     {
       icon: <Mail className="w-6 h-6" />,
       name: 'Email',
-      url: 'mailto:gianfrizio@example.com',
+      url: 'mailto:vittoriociampi83@gmail.com',
       color: 'hover:text-red-600'
     }
   ];
@@ -243,7 +243,7 @@ const Contact = () => {
                 Contattami per discutere delle tue idee e trasformarle in realtà.
               </p>
               <a
-                href="mailto:gianfrizio@example.com"
+                href="mailto:vittoriociampi83@gmail.com"
                 className="inline-flex items-center space-x-2 bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
               >
                 <Mail className="w-4 h-4" />

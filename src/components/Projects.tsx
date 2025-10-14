@@ -2,73 +2,50 @@
 
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, Smartphone, Globe } from 'lucide-react';
-import Image from 'next/image';
 
 const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'TravelMate',
-      description: 'App mobile per la pianificazione di viaggi con interfaccia intuitiva e funzionalità di ricerca avanzata.',
-      technologies: ['Flutter', 'Dart', 'Firebase', 'Google Maps API'],
-      type: 'Mobile App',
-      icon: <Smartphone className="w-5 h-5" />,
-      github: 'https://github.com/gianfrizio/TravelMate',
-      demo: '#',
+      title: 'TRAVEL MATE',
+      description: 'Web app in Next.js 15 + TypeScript per esplorare destinazioni e pianificare itinerari. API server-side per geocoding, meteo e immagini con fallback resilienti. UI responsive con TailwindCSS e animazioni Framer Motion.',
+      technologies: ['Next.js 15', 'TypeScript', 'TailwindCSS', 'Framer Motion', 'Geoapify', 'OpenWeather API'],
+      type: 'Web App',
+      icon: <Globe className="w-5 h-5" />,
+      github: 'https://github.com/gianfrizio',
+      demo: 'https://travel-mate',
       image: '/api/placeholder/400/300'
     },
     {
       id: 2,
-      title: 'DreamVisualizer',
-      description: 'Applicazione innovativa per la visualizzazione e gestione dei sogni con interfaccia moderna.',
-      technologies: ['Flutter', 'Dart', 'SQLite', 'Material Design'],
-      type: 'Mobile App',
-      icon: <Smartphone className="w-5 h-5" />,
-      github: 'https://github.com/gianfrizio/DreamVisualizer',
+      title: 'WEB CINEMA AI PRO',
+      description: 'Sistema di raccomandazione cinematografica con architettura microservizi. Backend Java Spring Boot, AI Engine Python Flask con machine learning, frontend JavaScript ES6+ con filtering real-time.',
+      technologies: ['Java 17', 'Spring Boot 3.2', 'Python Flask', 'Machine Learning', 'REST APIs', 'JavaScript ES6+'],
+      type: 'Full-Stack Enterprise',
+      icon: <Globe className="w-5 h-5" />,
+      github: 'https://github.com/gianfrizio',
       demo: '#',
       image: '/api/placeholder/400/300'
     },
     {
       id: 3,
-      title: 'E-Commerce Cart',
-      description: 'Sistema di carrello e-commerce completo con gestione prodotti e checkout avanzato.',
-      technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-      type: 'Web App',
-      icon: <Globe className="w-5 h-5" />,
-      github: 'https://github.com/gianfrizio/E-Commerce-Cart',
-      demo: '#',
+      title: 'DREAM VISUALIZER',
+      description: 'App mobile innovativa potenziata da AI. Integrazione OpenAI GPT-4 per NLP e DALL-E per generazione arte. Funzionalità avanzate: autenticazione biometrica, speech-to-text, storage crittografato, Firebase backend.',
+      technologies: ['Flutter', 'Dart', 'OpenAI GPT-4', 'DALL-E', 'Firebase', 'Biometric Auth'],
+      type: 'Mobile AI App',
+      icon: <Smartphone className="w-5 h-5" />,
+      github: 'https://github.com/gianfrizio',
+      demo: 'https://drive.google.com',
       image: '/api/placeholder/400/300'
     },
     {
       id: 4,
-      title: 'Magic Place',
-      description: 'Piattaforma web interattiva per la scoperta di luoghi magici e nascosti.',
-      technologies: ['React', 'Node.js', 'MongoDB', 'Express'],
-      type: 'Web App',
+      title: 'TETRIS GAME ENGINE',
+      description: 'Implementazione completa game engine con architetture multiple. Due versioni: C procedurale e C++ object-oriented. SDL2 per rendering real-time, sistema audio, gestione input. Meccaniche avanzate e memory optimization.',
+      technologies: ['C/C++', 'SDL2', 'Game Development', 'OOP', 'Memory Management'],
+      type: 'Game Engine',
       icon: <Globe className="w-5 h-5" />,
-      github: 'https://github.com/gianfrizio/Magic-Place',
-      demo: '#',
-      image: '/api/placeholder/400/300'
-    },
-    {
-      id: 5,
-      title: 'ToDoList React',
-      description: 'Applicazione per la gestione delle attività costruita con Atomic Design e Vite.',
-      technologies: ['React', 'Vite', 'TypeScript', 'Atomic Design'],
-      type: 'Web App',
-      icon: <Globe className="w-5 h-5" />,
-      github: 'https://github.com/gianfrizio/ToDoList-React-Vite-AtomicDesign',
-      demo: '#',
-      image: '/api/placeholder/400/300'
-    },
-    {
-      id: 6,
-      title: 'Tetris Game',
-      description: 'Implementazione classica del gioco Tetris con grafica moderna e controlli fluidi.',
-      technologies: ['JavaScript', 'HTML5 Canvas', 'CSS3'],
-      type: 'Game',
-      icon: <Globe className="w-5 h-5" />,
-      github: 'https://github.com/gianfrizio/Tetris',
+      github: 'https://github.com/gianfrizio',
       demo: '#',
       image: '/api/placeholder/400/300'
     }
