@@ -6,7 +6,7 @@ import { useState } from 'react';
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
 
-  const filters = ['All', 'Web App', 'Mobile AI App', 'Full-Stack Enterprise', 'Game Engine'];
+  const filters = ['All', 'Web App', 'Mobile AI App', 'Full-Stack Enterprise', 'Game Engine', 'E-Commerce', 'Static Website'];
 
   const projects = [
     {
@@ -16,8 +16,8 @@ const Projects = () => {
       technologies: ['Next.js 15', 'TypeScript', 'TailwindCSS', 'React Context', 'Geoapify', 'OpenWeather', 'Unsplash'],
       type: 'Web App',
       icon: <Globe className="w-5 h-5" />,
-      github: 'https://github.com/gianfrizio',
-      demo: 'https://travel-mate',
+      github: 'https://github.com/gianfrizio/TravelMate',
+      demo: 'https://travel-mate-mu.vercel.app',
       image: '/api/placeholder/400/300'
     },
     {
@@ -27,8 +27,8 @@ const Projects = () => {
       technologies: ['Java 17', 'Spring Boot 3.2', 'Spring Data JPA', 'Python Flask', 'Machine Learning', 'REST APIs', 'JavaScript ES6+'],
       type: 'Full-Stack Enterprise',
       icon: <Globe className="w-5 h-5" />,
-      github: 'https://github.com/gianfrizio',
-      demo: '#',
+      github: 'https://github.com/gianfrizio/Web-Cinema-AI-Pro',
+      demo: 'https://web-cinema-ai-pro.vercel.app',
       image: '/api/placeholder/400/300'
     },
     {
@@ -38,8 +38,8 @@ const Projects = () => {
       technologies: ['Flutter', 'Dart', 'OpenAI GPT-4', 'DALL-E', 'Firebase', 'Biometric Auth', 'Speech-to-Text'],
       type: 'Mobile AI App',
       icon: <Smartphone className="w-5 h-5" />,
-      github: 'https://github.com/gianfrizio',
-      demo: 'https://drive.google.com',
+      github: 'https://github.com/gianfrizio/Dream-Visualizer',
+      demo: 'https://drive.google.com/file/d/17shX0pZcK7x1rSnE1QUI-U-kisu4-tP0/view?usp=drive_link',
       image: '/api/placeholder/400/300'
     },
     {
@@ -49,8 +49,41 @@ const Projects = () => {
       technologies: ['C/C++', 'SDL2', 'Game Development', 'OOP', 'Memory Management', 'Graphics Programming'],
       type: 'Game Engine',
       icon: <Globe className="w-5 h-5" />,
-      github: 'https://github.com/gianfrizio',
-      demo: '#',
+      github: 'https://github.com/gianfrizio/Tetris',
+      demo: 'https://tetris-pi-mocha.vercel.app',
+      image: '/api/placeholder/400/300'
+    },
+    {
+      id: 5,
+      title: 'WATCH FILM - API KEY',
+      description: 'Sito web statico per browsing film utilizzando TheMovieDB API. Architettura modulare JavaScript ES6+ con separazione delle responsabilità (api.js, dom.js, ui.js, events.js). Features avanzate: paginazione dinamica, filtri per genere, ricerca per titolo. Gestione asincrona delle chiamate API con error handling robusto. Design responsive con focus su performance e user experience.',
+      technologies: ['JavaScript ES6+', 'HTML5', 'CSS3', 'TheMovieDB API', 'ES Modules', 'Async/Await'],
+      type: 'Web App',
+      icon: <Globe className="w-5 h-5" />,
+      github: 'https://github.com/gianfrizio/Watch-Film-ApiKey',
+      demo: 'https://gianfrizio.github.io/Watch-Film-ApiKey',
+      image: '/api/placeholder/400/300'
+    },
+    {
+      id: 6,
+      title: 'MAGIC PLACE',
+      description: 'E-commerce moderno e interattivo per vendita oggetti magici. Implementazione completa con HTML5 e CSS3 puro, senza framework esterni. Design responsive mobile-first con CSS Grid e Flexbox. Utilizzo avanzato di CSS custom properties, animations e transitions. Features: catalogo prodotti multi-categoria (bacchette, pozioni, libri), form contatti elaborato, effetti glassmorphism, tipografia elegante. Dimostra padronanza completa di modern CSS.',
+      technologies: ['HTML5', 'CSS3', 'CSS Grid', 'Flexbox', 'CSS Custom Properties', 'Responsive Design', 'CSS Animations'],
+      type: 'Static Website',
+      icon: <Globe className="w-5 h-5" />,
+      github: 'https://github.com/gianfrizio/Magic-Place',
+      demo: 'https://gianfrizio.github.io/Magic-Place',
+      image: '/api/placeholder/400/300'
+    },
+    {
+      id: 7,
+      title: 'E-COMMERCE CART',
+      description: 'Demo interattivo di catalogo prodotti e-commerce costruito con React e Vite. Gestione stato con Context API (CartContext, LanguageContext). Features complete: listing prodotti, ricerca avanzata, filtri per categoria, gestione carrello con localStorage persistence, pannello admin per aggiunta prodotti. Supporto internazionalizzazione (i18n) e theme switching (dark/light mode). Upload immagini via URL o file locale. Architettura modulare con CSS modulare per massima manutenibilità.',
+      technologies: ['React', 'Vite', 'Context API', 'JavaScript', 'CSS Modules', 'localStorage', 'i18n', 'Responsive Design'],
+      type: 'E-Commerce',
+      icon: <Globe className="w-5 h-5" />,
+      github: 'https://github.com/gianfrizio/E-Commerce-Cart',
+      demo: 'https://gianfrizio.github.io/E-Commerce-Cart',
       image: '/api/placeholder/400/300'
     }
   ];
