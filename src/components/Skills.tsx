@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import { Database, Smartphone, GitBranch, Server, Layout, Zap } from 'lucide-react';
 
 const Skills = () => {
@@ -80,113 +79,69 @@ const Skills = () => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
-
   return (
-    <section id="skills" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="skills" className="py-16 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Competenze Tecniche</h2>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Competenze Tecniche</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Le tecnologie e gli strumenti che utilizzo quotidianamente per creare soluzioni innovative.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
-            <motion.div
+            <div
               key={index}
-              variants={itemVariants}
-              className="bg-white rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
+              className="bg-white dark:bg-slate-800 rounded-xl shadow-lg p-6 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
             >
               <div className="flex items-center mb-6">
                 <div className={`p-3 bg-gradient-to-r ${category.color} rounded-lg text-white mr-4`}>
                   {category.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">{category.category}</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">{category.category}</h3>
               </div>
 
               <div className="space-y-4">
                 {category.skills.map((skill, idx) => (
                   <div key={idx}>
                     <div className="flex justify-between mb-2">
-                      <span className="text-sm font-medium text-gray-700">{skill.name}</span>
-                      <span className="text-sm font-semibold text-gray-900">{skill.level}%</span>
+                      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
+                      <span className="text-sm font-semibold text-gray-900 dark:text-white">{skill.level}%</span>
                     </div>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        transition={{ duration: 1, delay: idx * 0.1 }}
-                        viewport={{ once: true }}
+                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 overflow-hidden">
+                      <div
                         className={`h-full bg-gradient-to-r ${category.color} rounded-full`}
+                        style={{ width: `${skill.level}%` }}
                       />
                     </div>
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Stats Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
+        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { number: '8', label: 'Mesi di Apprendimento Intensivo' },
             { number: '4', label: 'Progetti Portfolio Completati' },
             { number: '15+', label: 'Tecnologie Padroneggiate' },
-            { number: '100%', label: 'Dedication & Passion' }
+            { number: '100%', label: 'Dedizione & Passione' },
+            { number: '95%', label: 'Produttività con IA' }
           ].map((stat, index) => (
-            <motion.div
+            <div
               key={index}
-              whileHover={{ scale: 1.05 }}
-              className="bg-white rounded-lg shadow-lg p-6 text-center"
+              className="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-6 text-center hover:scale-105 transition-transform duration-200"
             >
               <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-2">
                 {stat.number}
               </div>
-              <div className="text-gray-600 text-sm md:text-base">{stat.label}</div>
-            </motion.div>
+              <div className="text-gray-600 dark:text-gray-300 text-sm md:text-base">{stat.label}</div>
+            </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

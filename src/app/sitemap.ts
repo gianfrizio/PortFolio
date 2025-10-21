@@ -1,44 +1,17 @@
 import { MetadataRoute } from 'next';
 
+// IMPORTANTE: Aggiorna questo URL con il tuo dominio reale quando deployato
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://vittoriociampi.dev';
+
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: 'https://yourwebsite.com',
+      url: SITE_URL,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 1,
-    },
-    {
-      url: 'https://yourwebsite.com/#about',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://yourwebsite.com/#skills',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://yourwebsite.com/#experience',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: 'https://yourwebsite.com/#projects',
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: 'https://yourwebsite.com/#contact',
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
     },
   ];
 }

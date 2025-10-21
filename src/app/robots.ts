@@ -1,5 +1,8 @@
 import { MetadataRoute } from 'next';
 
+// IMPORTANTE: Aggiorna questo URL con il tuo dominio reale quando deployato
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://vittoriociampi.dev';
+
 export const dynamic = 'force-static';
 
 export default function robots(): MetadataRoute.Robots {
@@ -7,8 +10,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/private/',
+      disallow: ['/api/', '/_next/'], // Escludi API routes e Next.js internals
     },
-    sitemap: 'https://yourwebsite.com/sitemap.xml',
+    sitemap: `${SITE_URL}/sitemap.xml`,
   };
 }

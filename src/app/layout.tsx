@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ClientLayout from "@/components/ClientLayout";
@@ -13,15 +13,45 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+// IMPORTANTE: Aggiorna questo URL con il tuo dominio reale quando deployato
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://vittoriociampi.dev';
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Vittorio Ciampi - Full Stack, Mobile & Game Developer Portfolio",
   description: "Portfolio professionale di Vittorio Ciampi - Aspirante Software Developer specializzato in architetture enterprise, game development, AI integration. Competenze in Java, Spring Boot, Python, Flutter, React, Next.js, C/C++, SDL2.",
   keywords: ["Full Stack Developer", "Mobile Developer", "Game Developer", "AI Integration", "Java", "Spring Boot", "Python", "Flutter", "React", "Next.js", "C++", "SDL2", "Vittorio Ciampi"],
   authors: [{ name: "Vittorio Ciampi" }],
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "Vittorio Ciampi - Full Stack, Mobile & Game Developer",
     description: "Portfolio professionale - Sviluppatore Full Stack, Mobile & Game Developer con specializzazione in AI integration",
     type: "website",
+    url: SITE_URL,
+    siteName: "Vittorio Ciampi Portfolio",
+    locale: "it_IT",
+    images: [{
+      // actual OG image placed in public/og/og-image.png
+      url: "/og/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "Vittorio Ciampi Portfolio - Full Stack, Mobile & Game Developer"
+    }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vittorio Ciampi - Full Stack, Mobile & Game Developer",
+    description: "Portfolio professionale - Sviluppatore Full Stack, Mobile & Game Developer",
+    images: ["/og/og-image.png"],
   },
 };
 
