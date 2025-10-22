@@ -93,14 +93,12 @@ const Projects = () => {
     : projects.filter(project => project.type === activeFilter);
 
   return (
-    <section id="projects" className="py-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <section id="projects" className="py-16 section-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            I miei progetti
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        <div className="section-header">
+          <h2 className="section-title">I miei progetti</h2>
+          <div className="section-underline"></div>
+          <p className="section-description">
             Ecco una selezione dei progetti che ho sviluppato, dalle applicazioni mobile ai siti web complessi.
           </p>
         </div>
@@ -111,11 +109,7 @@ const Projects = () => {
             <button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 hover:scale-105 active:scale-95 ${
-                activeFilter === filter
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                  : 'bg-white/80 dark:bg-slate-800/80 text-gray-700 dark:text-gray-300 hover:shadow-md backdrop-blur-sm'
-              }`}
+              className={`filter-btn ${activeFilter === filter ? 'active' : ''}`}
             >
               {filter === 'All' && <Filter className="inline w-4 h-4 mr-2" />}
               {filter}
@@ -127,15 +121,11 @@ const Projects = () => {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden group hover:-translate-y-2 transition-all duration-300"
+              className="project-card card hover-lift"
             >
-              {/* Gradient Border Effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
-
-              <div className="relative bg-white dark:bg-slate-800 m-[1px] rounded-2xl overflow-hidden">
+              <div className="relative rounded-2xl overflow-hidden">
                 {/* Project Image with Enhanced Hover */}
-                <div className="relative h-56 bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-pink-900/20 overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10"></div>
+                <div className="project-image-bg relative h-56 overflow-hidden">
 
                   {/* Animated background pattern */}
                   <div className="absolute inset-0 opacity-20">
@@ -148,7 +138,7 @@ const Projects = () => {
                   </div>
 
                   <div className="relative z-10 h-full flex flex-col items-center justify-center text-center p-6">
-                    <div className="w-20 h-20 bg-white dark:bg-slate-800 rounded-2xl flex items-center justify-center mb-4 shadow-2xl hover:scale-110 hover:rotate-6 transition-transform duration-300">
+                    <div className="card w-20 h-20 flex items-center justify-center rounded-2xl mb-4 shadow-2xl hover:scale-110 hover:rotate-6 transition-transform duration-300">
                       {project.icon}
                     </div>
                     <h3 className="text-2xl font-bold text-gray-800 dark:text-white">{project.title}</h3>
@@ -160,7 +150,7 @@ const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-white rounded-full hover:bg-gray-100 hover:scale-125 hover:rotate-180 transition-all duration-300 shadow-xl"
+                      className="p-3 bg-gradient-to-br from-orange-100 to-amber-100 dark:bg-white rounded-full hover:bg-gradient-to-br hover:from-orange-200 hover:to-amber-200 dark:hover:bg-gray-100 hover:scale-125 hover:rotate-180 transition-all duration-300 shadow-xl border border-orange-200 dark:border-transparent"
                     >
                       <Github className="w-6 h-6 text-gray-700" />
                     </a>
@@ -168,16 +158,17 @@ const Projects = () => {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-white rounded-full hover:bg-gray-100 hover:scale-125 hover:rotate-180 transition-all duration-300 shadow-xl"
+                      className="p-3 bg-gradient-to-br from-orange-100 to-amber-100 dark:bg-white rounded-full hover:bg-gradient-to-br hover:from-orange-200 hover:to-amber-200 dark:hover:bg-gray-100 hover:scale-125 hover:rotate-180 transition-all duration-300 shadow-xl border border-orange-200 dark:border-transparent"
                     >
                       <ExternalLink className="w-6 h-6 text-gray-700" />
                     </a>
                   </div>
                 </div>
 
+                {/* Project Details */}
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="px-4 py-1.5 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-sm font-semibold rounded-full hover:scale-105 transition-transform">
+                    <span className="badge badge-primary">
                       {project.type}
                     </span>
                   </div>
@@ -190,7 +181,7 @@ const Projects = () => {
                     {project.technologies.map((tech, index) => (
                       <span
                         key={index}
-                        className="px-3 py-1 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-lg hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 hover:text-white hover:scale-110 hover:-translate-y-1 transition-all duration-200"
+                        className="badge badge-secondary hover:scale-110 hover:-translate-y-1"
                       >
                         {tech}
                       </span>
@@ -202,7 +193,7 @@ const Projects = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gray-900 dark:bg-slate-700 text-white rounded-xl hover:bg-gray-800 dark:hover:bg-slate-600 hover:scale-105 transition-all duration-200 font-medium"
+                      className="flex-1 btn-secondary flex items-center justify-center gap-2"
                     >
                       <Github className="w-4 h-4" />
                       <span>Codice</span>
@@ -211,7 +202,7 @@ const Projects = () => {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg hover:scale-105 transition-all duration-200 font-medium"
+                      className="flex-1 btn-primary flex items-center justify-center gap-2"
                     >
                       <ExternalLink className="w-4 h-4" />
                       <span>Demo</span>

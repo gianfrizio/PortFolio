@@ -66,21 +66,21 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-16 bg-gradient-to-br from-white via-purple-50/30 to-blue-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <section id="experience" className="py-16 section-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        <div className="section-header">
+          <h2 className="section-title">
             Il mio Percorso
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <div className="section-underline"></div>
+          <p className="section-description">
             Da autodidatta a sviluppatore competente: il viaggio di apprendimento intensivo e crescita costante.
           </p>
         </div>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-blue-600 to-purple-600"></div>
+          <div className="timeline hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5"></div>
 
           {experiences.map((exp, index) => (
             <div
@@ -90,40 +90,30 @@ const Experience = () => {
               } md:w-1/2`}
             >
               {/* Timeline dot */}
-              <div className="hidden md:block absolute top-0 left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full border-4 border-white shadow-lg"
+              <div className="timeline-dot hidden md:block absolute top-0 left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full shadow-lg"
                    style={{
                      left: index % 2 === 0 ? 'calc(100% + 0.125rem)' : '-0.5rem'
                    }}>
               </div>
 
-              <div
-                
-                className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 group"
-              >
-                {/* Gradient border on hover */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-lg rounded-2xl"></div>
-
-                <div className="relative bg-white dark:bg-slate-800 p-1 rounded-2xl">
+              <div className="card hover-lift p-6 rounded-2xl">
                   <div className={`flex items-start gap-4 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
-                    <div
-                      
-                      className="flex-shrink-0 w-14 h-14 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center text-white shadow-lg"
-                    >
+                    <div className="icon-bg flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center text-white shadow-lg">
                       <Briefcase className="w-7 h-7" />
                     </div>
 
                     <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                      <h3 className="text-2xl font-bold mb-2 gradient-text">
                         {exp.title}
                       </h3>
-                      <p className="text-lg text-blue-600 dark:text-blue-400 font-semibold mb-3">{exp.company}</p>
+                      <p className="text-lg font-semibold mb-3" style={{ color: 'var(--primary-gradient-from)' }}>{exp.company}</p>
 
                       <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-600 dark:text-gray-400">
-                        <div className="flex items-center gap-1 bg-blue-50 dark:bg-blue-900/20 px-3 py-1 rounded-full">
+                        <div className="badge badge-secondary flex items-center gap-1">
                           <Calendar className="w-4 h-4" />
                           <span>{exp.period}</span>
                         </div>
-                        <div className="flex items-center gap-1 bg-purple-50 dark:bg-purple-900/20 px-3 py-1 rounded-full">
+                        <div className="badge badge-secondary flex items-center gap-1">
                           <MapPin className="w-4 h-4" />
                           <span>{exp.location}</span>
                         </div>
@@ -133,16 +123,16 @@ const Experience = () => {
 
                       <div className="mb-4">
                         <h4 className="font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                          <span className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
+                          <span className="timeline-dot w-2 h-2 rounded-full"></span>
                           Risultati Chiave:
                         </h4>
                         <ul className="space-y-2">
                           {exp.achievements.map((achievement, idx) => (
                             <li
                               key={idx}
-                              className="text-gray-700 dark:text-gray-300 text-sm flex items-start bg-gray-50 dark:bg-slate-700/50 p-2 rounded-lg"
+                              className="text-gray-700 dark:text-gray-300 text-sm flex items-start card p-2 rounded-lg"
                             >
-                              <span className="text-blue-600 dark:text-blue-400 mr-2 text-lg">✓</span>
+                              <span className="mr-2 text-lg" style={{ color: 'var(--primary-gradient-from)' }}>✓</span>
                               {achievement}
                             </li>
                           ))}
@@ -153,8 +143,7 @@ const Experience = () => {
                         {exp.technologies.map((tech, idx) => (
                           <span
                             key={idx}
-                            
-                            className="px-3 py-1.5 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-lg border border-blue-200 dark:border-blue-700 hover:border-blue-400 dark:hover:border-blue-500 transition-all"
+                            className="badge badge-secondary hover:scale-105"
                           >
                             {tech}
                           </span>
@@ -162,7 +151,6 @@ const Experience = () => {
                       </div>
                     </div>
                   </div>
-                </div>
               </div>
             </div>
           ))}

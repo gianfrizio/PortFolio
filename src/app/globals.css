@@ -1,27 +1,36 @@
 @import "tailwindcss";
 
-:root {
-  /* Light mode colors */
-  --background: #ffffff;
-  --foreground: #0f172a;
-  --card: #ffffff;
-  --card-foreground: #0f172a;
-  --primary: #3b82f6;
-  --primary-foreground: #ffffff;
-  --secondary: #8b5cf6;
-  --secondary-foreground: #ffffff;
-  --accent: #06b6d4;
-  --accent-foreground: #0f172a;
-  --muted: #f1f5f9;
-  --muted-foreground: #64748b;
-  --border: #e2e8f0;
-  --input: #e2e8f0;
-  --ring: #3b82f6;
+/* Import custom theme and component styles */
+@import "../styles/themes.css";
+@import "../styles/components.css";
+@import "../styles/hero-profile.css";
 
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-  --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+:root {
+  /* Light mode colors - Orange theme */
+  --background: #ffffff;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --primary: #ff6b35;
+  --primary-foreground: #ffffff;
+  --secondary: #f7931e;
+  --secondary-foreground: #ffffff;
+  --accent: #ff8c42;
+  --accent-foreground: #1a1a1a;
+  --muted: #fff5f0;
+  --muted-foreground: #6b4e3d;
+  --border: #ffe4d6;
+  --input: #ffe4d6;
+  --ring: #ff6b35;
+
+  /* Gradients - Orange theme */
+  --gradient-primary: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+  --gradient-secondary: linear-gradient(135deg, #ff8c42 0%, #ffa726 100%);
+  --gradient-accent: linear-gradient(135deg, #ffb74d 0%, #fff3e0 100%);
+
+  /* Section backgrounds - Orange gradient theme */
+  --section-bg: linear-gradient(135deg, #fff9f5 0%, #ffe8d6 50%, #ffffff 100%);
+  --section-bg-alt: linear-gradient(135deg, #ffe8d6 0%, #ffd4b8 50%, #fff5ee 100%);
 }
 
 .dark {
@@ -40,6 +49,15 @@
   --border: #334155;
   --input: #334155;
   --ring: #60a5fa;
+
+  /* Section backgrounds - Dark mode stays the same */
+  --section-bg: #0f172a;
+  --section-bg-alt: #1e293b;
+
+  /* Gradients - Dark mode unchanged */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
 }
 
 /* Tailwind's preflight handles resets - removed manual reset */

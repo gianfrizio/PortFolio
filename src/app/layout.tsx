@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Vittorio Ciampi - Full Stack, Mobile & Game Developer Portfolio",
-  description: "Portfolio professionale di Vittorio Ciampi - Aspirante Software Developer specializzato in architetture enterprise, game development, AI integration. Competenze in Java, Spring Boot, Python, Flutter, React, Next.js, C/C++, SDL2.",
+  description: "Portfolio professionale di Vittorio Ciampi - Junior Software Developer specializzato in Full Stack, game development, integrazione AI. Competenze in Java, Spring Boot, Python, Flutter, React, Next.js, C/C++, SDL2.",
   keywords: ["Full Stack Developer", "Mobile Developer", "Game Developer", "AI Integration", "Java", "Spring Boot", "Python", "Flutter", "React", "Next.js", "C++", "SDL2", "Vittorio Ciampi"],
   authors: [{ name: "Vittorio Ciampi" }],
   robots: {
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Vittorio Ciampi - Full Stack, Mobile & Game Developer",
-    description: "Portfolio professionale - Sviluppatore Full Stack, Mobile & Game Developer con specializzazione in AI integration",
+    description: "Portfolio professionale - Sviluppatore Full Stack, Mobile & Game Developer con specializzazione in integrazione AI",
     type: "website",
     url: SITE_URL,
     siteName: "Vittorio Ciampi Portfolio",

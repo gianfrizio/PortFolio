@@ -89,57 +89,45 @@ const Contact = () => {
       icon: <FaLinkedin className="w-6 h-6" />,
       name: 'LinkedIn',
       url: 'https://linkedin.com/in/vittorio-ciampi',
-      color: 'hover:text-blue-600'
+      color: 'hover:text-orange-600 dark:hover:text-blue-400'
     },
     {
       icon: <Mail className="w-6 h-6" />,
       name: 'Email',
       url: 'mailto:vittoriociampi83@gmail.com',
-      color: 'hover:text-red-600'
+      color: 'hover:text-orange-700 dark:hover:text-red-600'
     }
   ];
 
   return (
-    <section id="contact" className="py-16 bg-gray-50 dark:bg-slate-900">
+    <section id="contact" className="py-16 section-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Contattami</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+        <div className="section-header">
+          <h2 className="section-title">Contattami</h2>
+          <div className="section-underline"></div>
+          <p className="section-description">
             Hai un progetto in mente? Sono sempre interessato a nuove opportunità di collaborazione.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-white dark:bg-slate-800 p-8 rounded-lg shadow-lg">
+          <div className="contact-form-card">
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Invia un messaggio</h3>
 
             {/* Success Message */}
             {submitStatus === 'success' && (
-              <div
-                
-                
-                className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center gap-3"
-              >
-                <CheckCircle className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0" />
-                <p className="text-green-800 dark:text-green-300">
-                  Messaggio inviato con successo! Ti risponderò al più presto.
-                </p>
+              <div className="alert alert-success">
+                <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                <p>Messaggio inviato con successo! Ti risponderò al più presto.</p>
               </div>
             )}
 
             {/* Error Message */}
             {submitStatus === 'error' && (
-              <div
-                
-                
-                className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg flex items-center gap-3"
-              >
-                <XCircle className="w-5 h-5 text-red-600 dark:text-red-400 flex-shrink-0" />
-                <p className="text-red-800 dark:text-red-300">
-                  {errorMessage}
-                </p>
+              <div className="alert alert-error">
+                <XCircle className="w-5 h-5 flex-shrink-0" />
+                <p>{errorMessage}</p>
               </div>
             )}
 
@@ -156,7 +144,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
+                    className="form-input w-full px-4 py-3 rounded-lg"
                     placeholder="Il tuo nome"
                   />
                 </div>
@@ -171,7 +159,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
+                    className="form-input w-full px-4 py-3 rounded-lg"
                     placeholder="la-tua-email@esempio.com"
                   />
                 </div>
@@ -188,7 +176,7 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors"
+                  className="form-input w-full px-4 py-3 rounded-lg"
                   placeholder="Oggetto del messaggio"
                 />
               </div>
@@ -204,7 +192,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-colors resize-none"
+                  className="form-input w-full px-4 py-3 rounded-lg resize-none"
                   placeholder="Scrivi qui il tuo messaggio..."
                 />
               </div>
@@ -212,11 +200,11 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+                className="btn-primary w-full flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
                 {isSubmitting ? (
                   <>
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                    <div className="spinner"></div>
                     Invio in corso...
                   </>
                 ) : (
@@ -236,14 +224,14 @@ const Contact = () => {
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex items-start space-x-4">
-                    <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center text-white">
+                    <div className="flex-shrink-0 w-12 h-12 icon-bg rounded-lg flex items-center justify-center text-white shadow-md">
                       {info.icon}
                     </div>
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white">{info.title}</h4>
                       <a
                         href={info.link}
-                        className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                        className="text-gray-600 dark:text-gray-300 hover:text-orange-600 dark:hover:text-blue-400 transition-colors"
                       >
                         {info.content}
                       </a>
@@ -262,7 +250,7 @@ const Contact = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-12 h-12 bg-white dark:bg-slate-800 rounded-lg shadow-lg flex items-center justify-center text-gray-600 dark:text-gray-300 ${social.color} dark:hover:text-blue-400 transition-all duration-200 hover:shadow-xl hover:scale-105`}
+                    className="social-link"
                     title={social.name}
                   >
                     {social.icon}
@@ -272,14 +260,14 @@ const Contact = () => {
             </div>
 
             {/* Call to Action */}
-            <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-6 rounded-lg text-white">
+            <div className="cta-box">
               <h4 className="text-lg font-semibold mb-2">Pronto per iniziare un progetto?</h4>
-              <p className="text-blue-100 mb-4">
+              <p className="cta-box-text mb-4">
                 Contattami per discutere delle tue idee e trasformarle in realtà.
               </p>
               <a
                 href="mailto:vittoriociampi83@gmail.com"
-                className="inline-flex items-center space-x-2 bg-white text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                className="cta-box-btn"
               >
                 <Mail className="w-4 h-4" />
                 <span>Scrivimi ora</span>

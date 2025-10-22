@@ -1,0 +1,74 @@
+/* Hero Profile Picture Styles */
+
+.profile-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: linear-gradient(
+    to right,
+    var(--primary-gradient-from),
+    var(--primary-gradient-via),
+    var(--primary-gradient-to)
+  );
+  filter: blur(3rem);
+  opacity: 0.3;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.profile-circle-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 107, 53, 0.2),
+    rgba(247, 147, 30, 0.2),
+    rgba(255, 243, 224, 0.2)
+  );
+  backdrop-filter: blur(0.5rem);
+}
+
+.dark .profile-circle-bg {
+  background: linear-gradient(
+    to bottom right,
+    rgba(59, 130, 246, 0.2),
+    rgba(139, 92, 246, 0.2),
+    rgba(236, 72, 153, 0.2)
+  );
+}
+
+.profile-circle-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top right,
+    rgba(255, 107, 53, 0.1),
+    rgba(247, 147, 30, 0.1)
+  );
+}
+
+.dark .profile-circle-overlay {
+  background: linear-gradient(
+    to top right,
+    rgba(59, 130, 246, 0.1),
+    rgba(139, 92, 246, 0.1)
+  );
+}
+
+.profile-floating-icon {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(0.5rem);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.2);
+  animation: float 6s ease-in-out infinite;
+}
+
+.dark .profile-floating-icon {
+  background: rgba(30, 41, 59, 0.8);
+}
+
+.profile-floating-icon svg {
+  color: var(--primary-gradient-from);
+}

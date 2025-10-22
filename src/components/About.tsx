@@ -27,11 +27,11 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-16 bg-gray-50 dark:bg-slate-900">
+    <section id="about" className="py-16 section-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Chi sono</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
+        <div className="section-header">
+          <h2 className="section-title">Chi sono</h2>
+          <div className="section-underline"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
@@ -50,23 +50,23 @@ const About = () => {
 
           <div className="flex justify-center">
             <div className="grid grid-cols-2 gap-4 max-w-sm">
-              <div className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg text-center">
-                <Code className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+              <div className="about-card text-center">
+                <Code className="about-icon" />
                 <h4 className="font-semibold text-gray-900 dark:text-white">Clean Code</h4>
                 <p className="text-sm text-gray-600 dark:text-gray-300">Codice leggibile e maintainabile</p>
               </div>
-              <div className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg text-center">
-                <Zap className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+              <div className="about-card text-center">
+                <Zap className="about-icon" style={{ color: 'var(--primary-gradient-via)' }} />
                 <h4 className="font-semibold text-gray-900 dark:text-white">Performance</h4>
                 <p className="text-sm text-gray-600 dark:text-gray-300">Ottimizzazione e velocità</p>
               </div>
-              <div className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg text-center">
-                <Smartphone className="w-8 h-8 text-green-600 mx-auto mb-2" />
+              <div className="about-card text-center">
+                <Smartphone className="about-icon" style={{ color: 'var(--primary-gradient-to)' }} />
                 <h4 className="font-semibold text-gray-900 dark:text-white">Responsive</h4>
                 <p className="text-sm text-gray-600 dark:text-gray-300">Design adattivo</p>
               </div>
-              <div className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg text-center">
-                <Database className="w-8 h-8 text-red-600 mx-auto mb-2" />
+              <div className="about-card text-center">
+                <Database className="about-icon" />
                 <h4 className="font-semibold text-gray-900 dark:text-white">Scalabile</h4>
                 <p className="text-sm text-gray-600 dark:text-gray-300">Architetture robuste</p>
               </div>
@@ -81,19 +81,19 @@ const About = () => {
             {skills.map((skill) => (
               <div
                 key={skill.category}
-                className="bg-white dark:bg-slate-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="skill-category"
               >
                 <div className="flex items-center mb-4">
-                  <div className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg text-white mr-3">
+                  <div className="skill-category-icon">
                     {skill.icon}
                   </div>
-                  <h4 className="text-xl font-semibold text-gray-900 dark:text-white">{skill.category}</h4>
+                  <h4 className="text-xl font-semibold text-gray-900 dark:text-white ml-3">{skill.category}</h4>
                 </div>
                 <div className="space-y-2">
                   {skill.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="inline-block bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm mr-2 mb-2"
+                      className="badge badge-secondary mr-2 mb-2"
                     >
                       {tech}
                     </span>

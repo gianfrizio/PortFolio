@@ -31,14 +31,14 @@ const Testimonials = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <section id="testimonials" className="py-16 section-secondary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+        <div className="section-header">
+          <h2 className="section-title">
             Feedback & Recensioni
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <div className="section-underline"></div>
+          <p className="section-description">
             Valutazioni sul mio lavoro e approccio allo sviluppo.
           </p>
         </div>
@@ -51,7 +51,7 @@ const Testimonials = () => {
               className="relative group"
             >
               {/* Gradient background effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-500 dark:from-blue-600 dark:via-purple-600 dark:to-pink-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"></div>
 
               <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300">
                 {/* Quote Icon */}
@@ -80,7 +80,7 @@ const Testimonials = () => {
                 <div className="flex items-center relative z-10">
                   <div
                     
-                    className="w-14 h-14 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 shadow-lg"
+                    className="w-14 h-14 bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-500 dark:from-blue-500 dark:via-purple-500 dark:to-pink-500 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4 shadow-lg"
                   >
                     {testimonial.name.charAt(0)}
                   </div>
@@ -100,7 +100,7 @@ const Testimonials = () => {
 
         {/* Stats Section with enhanced design */}
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl blur-xl opacity-20"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-500 dark:from-blue-600 dark:via-purple-600 dark:to-pink-600 rounded-3xl blur-xl opacity-20"></div>
           <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-3xl shadow-2xl p-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[
@@ -113,7 +113,7 @@ const Testimonials = () => {
                   
                   className="group"
                 >
-                  <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 mb-3 group-hover:scale-110 transition-transform">
+                  <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-500 dark:from-blue-600 dark:via-purple-600 dark:to-pink-600 mb-3 group-hover:scale-110 transition-transform">
                     {stat.number}
                   </div>
                   <div className="text-gray-600 dark:text-gray-400 font-medium">{stat.label}</div>
