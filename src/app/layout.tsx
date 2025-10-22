@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 
 // IMPORTANTE: Aggiorna questo URL con il tuo dominio reale quando deployato
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://vittoriociampi.dev';
+const FB_APP_ID = process.env.NEXT_PUBLIC_FB_APP_ID || '';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -39,9 +40,9 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "Vittorio Ciampi Portfolio",
     locale: "it_IT",
-    images: [{
+      images: [{
       // updated OG image (versioned) to force cache refresh
-      url: "/og/og-image.png",
+      url: "/og/og-image.jpg",
       width: 1200,
       height: 630,
       alt: "Vittorio Ciampi Portfolio - Full Stack, Mobile & Game Developer"
@@ -51,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vittorio Ciampi - Full Stack, Mobile & Game Developer",
     description: "Portfolio professionale - Sviluppatore Full Stack, Mobile & Game Developer",
-  images: ["/og/og-image.png"],
+    images: ["/og/og-image.jpg"],
   },
 };
 
@@ -62,6 +63,18 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" suppressHydrationWarning>
+      <head>
+        {/* Recommended Open Graph / social tags to improve previews (WhatsApp uses FB scraper) */}
+        <meta property="og:image:secure_url" content={`${SITE_URL}/og/og-image.jpg`} />
+    <meta property="og:image:secure_url" content={`${SITE_URL}/og/og-image.jpg`} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <link rel="image_src" href={`${SITE_URL}/og/og-image.jpg`} />
+    <meta name="twitter:image:src" content={`${SITE_URL}/og/og-image.jpg`} />
+        {FB_APP_ID ? (
+          /* Facebook App ID for Open Graph (set NEXT_PUBLIC_FB_APP_ID in env) */
+          <meta property="fb:app_id" content={FB_APP_ID} />
+        ) : null}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-gray-900 transition-colors duration-200`}
       >
