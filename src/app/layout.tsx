@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     locale: "it_IT",
     images: [{
       // updated OG image (versioned) to force cache refresh
-      url: "/og/og-image-v2.png",
+      url: "/og/og-image.png",
       width: 1200,
       height: 630,
       alt: "Vittorio Ciampi Portfolio - Full Stack, Mobile & Game Developer"
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Vittorio Ciampi - Full Stack, Mobile & Game Developer",
     description: "Portfolio professionale - Sviluppatore Full Stack, Mobile & Game Developer",
-  images: ["/og/og-image-v2.png"],
+  images: ["/og/og-image.png"],
   },
 };
 
