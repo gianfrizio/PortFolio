@@ -208,9 +208,20 @@
     var(--primary-gradient-via),
     var(--primary-gradient-to)
   );
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
+  /* Use standard mask-composite where available; provide a WebKit fallback below. */
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
+}
+
+/* WebKit fallback for older Safari implementations that use -webkit-mask-composite */
+@supports (-webkit-mask-composite: xor) {
+  .gradient-border::before {
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    /* Also define the standard properties here to satisfy linters and modern browsers */
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
 }
 
 /* Footer Styles */

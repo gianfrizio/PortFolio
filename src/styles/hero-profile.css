@@ -72,3 +72,41 @@
 .profile-floating-icon svg {
   color: var(--primary-gradient-from);
 }
+
+/* Light-theme variants: reuse the same gradient animation used elsewhere
+   so the profile glow and circles subtly shift colors in light mode too.
+   Keep existing .dark rules untouched so dark remains the same. */
+html:not(.dark) .profile-glow {
+  /* slightly stronger but still soft in light */
+  opacity: 0.25;
+  filter: blur(2.75rem);
+  /* animate the gradient to move over time */
+  background-size: 200% 200%;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite, gradient-shift 12s ease infinite;
+}
+
+html:not(.dark) .profile-circle-bg {
+  /* restore original warm/orange layered gradient used previously */
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 107, 53, 0.2),
+    rgba(247, 147, 30, 0.2),
+    rgba(255, 243, 224, 0.2)
+  );
+  backdrop-filter: blur(0.5rem);
+  opacity: 1;
+  background-size: 200% 200%;
+  animation: gradient-shift 12s ease infinite;
+}
+
+html:not(.dark) .profile-circle-overlay {
+  /* overlay uses a subtle warm highlight like before */
+  background: linear-gradient(
+    to top right,
+    rgba(255, 107, 53, 0.1),
+    rgba(247, 147, 30, 0.1)
+  );
+  opacity: 1;
+  background-size: 200% 200%;
+  animation: gradient-shift 12s ease infinite;
+}

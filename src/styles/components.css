@@ -24,6 +24,54 @@
   animation: gradient-shift 15s ease infinite;
 }
 
+/* Ensure the hero section background itself animates in light mode
+   so it matches the color-change behavior of dark mode. This targets
+   elements using both `hero-bg` and `section-primary` when the page
+   is in light theme (html does NOT have the .dark class). */
+html:not(.dark) .hero-bg.section-primary {
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Light-mode specific hero gradient (subtle yellow -> orange shift)
+  Apply only when html does NOT have the .dark class so dark theme
+  keeps the original behavior. */
+html:not(.dark) .hero-bg::before {
+  /* increase opacity for light theme so change is more visible */
+  opacity: 0.55;
+  background: linear-gradient(
+    -45deg,
+    rgba(250, 225, 120, 0.9) 0%, /* mid yellow */
+    rgba(255, 183, 77, 0.9) 50%, /* orange */
+    rgba(255, 107, 53, 0.9) 100%
+  );
+  background-size: 400% 400%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Animated background circles for light theme - slightly more visible and in sync */
+html:not(.dark) .hero-circle {
+  /* much subtler in light mode but colors follow the hero gradient (uses CSS vars)
+     Apply both the gradient-shift (for color movement) and a subtle drift. */
+  background: radial-gradient(circle at 30% 30%, color-mix(in srgb, var(--primary-gradient-from) 35%, #fff 65%), color-mix(in srgb, var(--primary-gradient-via) 20%, #fff 80%));
+  /* allow the gradient animation to move the background colors */
+  background-size: 400% 400%;
+  mix-blend-mode: screen;
+  opacity: 0.45;
+  transform-origin: center;
+  animation: gradient-shift 15s ease infinite, circle-drift 20s ease-in-out infinite;
+}
+
+html:not(.dark) .hero-circle-1 { filter: blur(46px); }
+html:not(.dark) .hero-circle-2 { filter: blur(56px); }
+html:not(.dark) .hero-circle-3 { filter: blur(40px); }
+
+@keyframes circle-drift {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.02); }
+  100% { transform: translateY(0) scale(1); }
+}
+
 /* Project Cards */
 .project-card {
   position: relative;

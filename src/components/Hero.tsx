@@ -63,9 +63,9 @@ const Hero = () => {
 
       {/* Floating Elements - Pure CSS */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-orange-400/20 dark:bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-amber-400/20 dark:bg-purple-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-yellow-300/20 dark:bg-pink-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+  <div className="absolute top-20 left-10 w-72 h-72 rounded-full blur-3xl animate-pulse hero-circle hero-circle-1 bg-orange-400/20 dark:bg-blue-400/20"></div>
+  <div className="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl animate-pulse hero-circle hero-circle-2 bg-amber-400/20 dark:bg-purple-400/20" style={{ animationDelay: '1s' }}></div>
+  <div className="absolute top-1/2 left-1/2 w-64 h-64 rounded-full blur-3xl animate-pulse hero-circle hero-circle-3 bg-yellow-300/20 dark:bg-pink-400/20" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
@@ -100,7 +100,7 @@ const Hero = () => {
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
               Software Developer specializzato in{' '}
               <span className="font-semibold text-orange-600 dark:text-blue-600">sviluppo mobile</span>,{' '}
-              <span className="font-semibold text-amber-600 dark:text-purple-600">full stack</span> e{' '}
+              <span className="font-semibold text-amber-600 dark:text-orange-600">full stack</span> e{' '}
               <span className="font-semibold text-yellow-600 dark:text-pink-600">integrazione IA</span>.
               <br className="hidden md:block" />
               Autodidatta con eccezionale capacità di apprendimento e approccio innovativo.
