@@ -6,7 +6,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
 
   const handleClick = () => {
     console.log('Theme toggle clicked, current theme:', theme);
