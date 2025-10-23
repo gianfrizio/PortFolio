@@ -13,7 +13,6 @@ const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
-  const [reduceMotion, setReduceMotion] = useState(false);
 
   const titles = useMemo(() => [
     t('hero.title1'),
@@ -42,45 +41,10 @@ const Hero = () => {
     }
   }, [isDeleting, text, loopNum, titles]);
 
-  // Only run typing effect when we don't need to reduce motion for low-end devices
   useEffect(() => {
-    if (reduceMotion) return;
     const timer = setTimeout(handleTyping, typingSpeed);
     return () => clearTimeout(timer);
-  }, [handleTyping, typingSpeed, reduceMotion]);
-
-  // If reduceMotion is enabled, show a static (or minimal) title to avoid heavy JS work
-  useEffect(() => {
-    if (reduceMotion) {
-      setText(titles?.[0] ?? '');
-    }
-  }, [reduceMotion, titles]);
-
-  // Detect low-power / low-capability devices and respect user's reduced-motion preference
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    try {
-      const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      // navigator.deviceMemory and hardwareConcurrency may not be present in lib.dom types in some setups,
-      // so we define a narrow interface and read them safely without using `any`.
-      type NavigatorWithHints = {
-        deviceMemory?: number;
-        hardwareConcurrency?: number;
-      } & Navigator;
-
-      const nav = navigator as NavigatorWithHints;
-      const deviceMemory = nav.deviceMemory ?? 4;
-      const hwConcurrency = nav.hardwareConcurrency ?? 4;
-      const smallScreen = window.innerWidth <= 768;
-
-      const shouldReduce = prefersReduced || deviceMemory <= 2 || hwConcurrency <= 2 || smallScreen;
-      setReduceMotion(shouldReduce);
-    } catch {
-      // If detection fails, do not force reduce-motion; let prefers-reduced-motion still apply via CSS
-      // noop
-    }
-  }, []);
+  }, [handleTyping, typingSpeed]);
 
   const scrollToAbout = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
