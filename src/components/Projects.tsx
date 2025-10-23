@@ -6,17 +6,13 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const Projects = () => {
   const { t } = useLanguage();
-  const [activeFilter, setActiveFilter] = useState(t('projects.filters.all'));
 
-  const filters = [
-    t('projects.filters.all'),
-    t('projects.filters.webapp'),
-    t('projects.filters.mobileai'),
-    t('projects.filters.fullstack'),
-    t('projects.filters.gameengine'),
-    t('projects.filters.ecommerce'),
-    t('projects.filters.static')
-  ];
+  // Use language-independent keys for filters so the active filter
+  // doesn't break when language changes. Display labels are localized via `t()`.
+  const filterKeys = ['all', 'webapp', 'mobileai', 'fullstack', 'gameengine', 'ecommerce', 'static'];
+  const [activeFilter, setActiveFilter] = useState<string>('all');
+
+  const filters = filterKeys;
 
   const projects = [
     {
@@ -24,7 +20,7 @@ const Projects = () => {
       title: 'TRAVEL MATE',
       description: t('projects.items.travelmate.description'),
       technologies: ['Next.js 15', 'TypeScript', 'TailwindCSS', 'React Context', 'Geoapify', 'OpenWeather', 'Unsplash'],
-      type: t('projects.filters.webapp'),
+      type: 'webapp',
       icon: <Globe className="w-5 h-5" />,
       github: 'https://github.com/gianfrizio/TravelMate',
       demo: 'https://travel-mate-mu.vercel.app',
@@ -35,7 +31,7 @@ const Projects = () => {
       title: 'WEB CINEMA AI PRO',
       description: t('projects.items.cinema.description'),
       technologies: ['Java 17', 'Spring Boot 3.2', 'Spring Data JPA', 'Python Flask', 'Machine Learning', 'REST APIs', 'JavaScript ES6+'],
-      type: t('projects.filters.fullstack'),
+  type: 'fullstack',
       icon: <Globe className="w-5 h-5" />,
       github: 'https://github.com/gianfrizio/Web-Cinema-AI-Pro',
       demo: 'https://web-cinema-ai-pro.vercel.app',
@@ -46,7 +42,7 @@ const Projects = () => {
       title: 'DREAM VISUALIZER',
       description: t('projects.items.dream.description'),
       technologies: ['Flutter', 'Dart', 'OpenAI GPT-4', 'DALL-E', 'Firebase', 'Biometric Auth', 'Speech-to-Text'],
-      type: t('projects.filters.mobileai'),
+  type: 'mobileai',
       icon: <Smartphone className="w-5 h-5" />,
       github: 'https://github.com/gianfrizio/Dream-Visualizer',
       demo: 'https://drive.google.com/file/d/17shX0pZcK7x1rSnE1QUI-U-kisu4-tP0/view?usp=drive_link',
@@ -57,7 +53,7 @@ const Projects = () => {
       title: 'TETRIS GAME ENGINE',
       description: t('projects.items.tetris.description'),
       technologies: ['C/C++', 'SDL2', 'Game Development', 'OOP', 'Memory Management', 'Graphics Programming'],
-      type: t('projects.filters.gameengine'),
+  type: 'gameengine',
       icon: <Globe className="w-5 h-5" />,
       github: 'https://github.com/gianfrizio/Tetris',
       demo: 'https://tetris-pi-mocha.vercel.app',
@@ -68,7 +64,7 @@ const Projects = () => {
       title: 'WATCH FILM - API KEY',
       description: t('projects.items.watchfilm.description'),
       technologies: ['JavaScript ES6+', 'HTML5', 'CSS3', 'TheMovieDB API', 'ES Modules', 'Async/Await'],
-      type: t('projects.filters.webapp'),
+  type: 'webapp',
       icon: <Globe className="w-5 h-5" />,
       github: 'https://github.com/gianfrizio/Watch-Film-ApiKey',
       demo: 'https://gianfrizio.github.io/Watch-Film-ApiKey',
@@ -79,7 +75,7 @@ const Projects = () => {
       title: 'MAGIC PLACE',
       description: t('projects.items.magic.description'),
       technologies: ['HTML5', 'CSS3', 'CSS Grid', 'Flexbox', 'CSS Custom Properties', 'Responsive Design', 'CSS Animations'],
-      type: t('projects.filters.static'),
+  type: 'static',
       icon: <Globe className="w-5 h-5" />,
       github: 'https://github.com/gianfrizio/Magic-Place',
       demo: 'https://gianfrizio.github.io/Magic-Place',
@@ -90,7 +86,7 @@ const Projects = () => {
       title: 'E-COMMERCE CART',
       description: t('projects.items.ecommerce.description'),
       technologies: ['React', 'Vite', 'Context API', 'JavaScript', 'CSS Modules', 'localStorage', 'i18n', 'Responsive Design'],
-      type: t('projects.filters.ecommerce'),
+  type: 'ecommerce',
       icon: <Globe className="w-5 h-5" />,
       github: 'https://github.com/gianfrizio/E-Commerce-Cart',
       demo: 'https://gianfrizio.github.io/E-Commerce-Cart',
@@ -98,7 +94,7 @@ const Projects = () => {
     }
   ];
 
-  const filteredProjects = activeFilter === t('projects.filters.all')
+  const filteredProjects = activeFilter === 'all'
     ? projects
     : projects.filter(project => project.type === activeFilter);
 
@@ -115,14 +111,14 @@ const Projects = () => {
 
         {/* Filter Buttons */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {filters.map((filter) => (
+          {filters.map((key) => (
             <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`filter-btn ${activeFilter === filter ? 'active' : ''}`}
+              key={key}
+              onClick={() => setActiveFilter(key)}
+              className={`filter-btn ${activeFilter === key ? 'active' : ''}`}
             >
-              {filter === t('projects.filters.all') && <Filter className="inline w-4 h-4 mr-2" />}
-              {filter}
+              {key === 'all' && <Filter className="inline w-4 h-4 mr-2" />}
+              {t(`projects.filters.${key}`)}
             </button>
           ))}
         </div>
@@ -179,7 +175,7 @@ const Projects = () => {
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-4">
                     <span className="badge badge-primary">
-                      {project.type}
+                      {t(`projects.filters.${project.type}`)}
                     </span>
                   </div>
 
