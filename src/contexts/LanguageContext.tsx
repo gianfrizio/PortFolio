@@ -209,7 +209,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.cta.button': 'Scrivimi ora',
 
     // Footer
-    'footer.description': 'Full Stack, Mobile & Game Developer specializzato in Full Stack, integrazione AI e sviluppo mobile.',
+    'footer.description': 'Full Stack, Mobile & Game Developer specializzato in Front-End, integrazione AI e sviluppo mobile cross-platform.',
     'footer.links': 'Links',
     'footer.contacts': 'Contatti',
     'footer.copyright': '© 2024 Vittorio Ciampi. Tutti i diritti riservati.',
