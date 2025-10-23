@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Vittorio Ciampi - Full Stack, Mobile & Game Developer",
-    description: "Portfolio professionale - Sviluppatore Full Stack, Mobile & Game Developer con specializzazione in integrazione AI",
+    description: "Portfolio professionale - Full Stack, Mobile & Game Developer con specializzazione in integrazione AI",
     type: "website",
     url: SITE_URL,
     siteName: "Vittorio Ciampi Portfolio",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Vittorio Ciampi - Full Stack, Mobile & Game Developer",
-    description: "Portfolio professionale - Sviluppatore Full Stack, Mobile & Game Developer",
+    description: "Portfolio professionale - Full Stack, Mobile & Game Developer",
     images: ["/og/og-image.jpg"],
   },
 };

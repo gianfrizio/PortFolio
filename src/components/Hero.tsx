@@ -3,21 +3,23 @@
 import Image from 'next/image';
 import { ArrowDown, Download, Github, Linkedin, Mail, Sparkles, Code2, Rocket } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { useEffect, useState, useMemo, useCallback } from 'react';
 
 const Hero = () => {
   const { theme } = useTheme();
+  const { t, language } = useLanguage();
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(150);
 
   const titles = useMemo(() => [
-    'Full Stack Developer',
-    'Mobile Developer',
-    'Game Developer',
-    'AI Integration Specialist'
-  ], []);
+    t('hero.title1'),
+    t('hero.title2'),
+    t('hero.title3'),
+    t('hero.title4')
+  ], [t]);
 
   const handleTyping = useCallback(() => {
     const current = loopNum % titles.length;
@@ -48,6 +50,14 @@ const Hero = () => {
     document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const cvLink = useMemo(() => {
+    console.log('CV Link updated, current language:', language);
+    return {
+      href: language === 'it' ? '/cv/Vittorio_Ciampi_CV.pdf' : '/cv/Vittorio_Ciampi_CV_EN.pdf',
+      download: language === 'it' ? 'Vittorio_Ciampi_CV.pdf' : 'Vittorio_Ciampi_CV_EN.pdf'
+    };
+  }, [language]);
+
   const socialLinks = [
     { icon: <Github size={20} />, href: 'https://github.com/gianfrizio', label: 'GitHub' },
     { icon: <Linkedin size={20} />, href: 'https://linkedin.com/in/vittorio-ciampi', label: 'LinkedIn' },
@@ -76,7 +86,7 @@ const Hero = () => {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm shadow-lg mb-6">
               <Sparkles className="w-4 h-4 text-yellow-500" />
               <span className={`text-sm font-medium ${theme !== 'dark' ? 'text-white' : 'text-gray-300'}`}>
-                Disponibile per nuove opportunità
+                {t('hero.badge')}
               </span>
             </div>
 
@@ -97,20 +107,13 @@ const Hero = () => {
               <span className="animate-pulse ml-1" style={{ color: 'var(--primary-gradient-from)' }}>|</span>
             </h2>
 
-            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
-              Software Developer specializzato in{' '}
-              <span className="font-semibold text-orange-600 dark:text-blue-600">sviluppo mobile</span>,{' '}
-              <span className="font-semibold text-amber-600 dark:text-orange-600">full stack</span> e{' '}
-              <span className="font-semibold text-yellow-600 dark:text-pink-600">integrazione IA</span>.
-              <br className="hidden md:block" />
-              Autodidatta con eccezionale capacità di apprendimento e approccio innovativo.
-            </p>
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed" dangerouslySetInnerHTML={{ __html: t('hero.description') }} />
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-4 mb-10 max-w-md mx-auto lg:mx-0">
               {[
-                { number: '7', label: 'Progetti' },
-                { number: '15+', label: 'Tecnologie' },
+                { number: '7', label: t('hero.stats.projects') },
+                { number: '15+', label: t('hero.stats.technologies') },
               ].map((stat, index) => (
                 <div key={index} className="text-center lg:text-left">
                   <div className="text-3xl font-bold stat-number">
@@ -127,17 +130,17 @@ const Hero = () => {
                 className="btn-primary flex items-center justify-center gap-2"
               >
                 <Rocket className="w-5 h-5" />
-                Vedi i miei progetti
+                {t('hero.cta.projects')}
               </button>
 
               <a
-                href="/cv/Vittorio_Ciampi_CV.pdf"
-                download="Vittorio_Ciampi_CV.pdf"
+                href={cvLink.href}
+                download={cvLink.download}
                 className="btn-secondary flex items-center justify-center gap-2"
-                aria-label="Scarica il mio curriculum vitae in formato PDF"
+                aria-label={t('hero.cta.cv')}
               >
                 <Download size={20} />
-                Scarica CV
+                {t('hero.cta.cv')}
               </a>
             </div>
 
@@ -204,9 +207,9 @@ const Hero = () => {
             onClick={scrollToAbout}
             className="flex flex-col items-center gap-2 text-gray-600 dark:text-gray-400 hover:scale-110 transition-all duration-200"
             style={{ color: 'var(--input-text)' }}
-            aria-label="Scorri alla sezione About"
+            aria-label={t('hero.scroll')}
           >
-            <span className="text-sm font-medium">Scorri</span>
+            <span className="text-sm font-medium">{t('hero.scroll')}</span>
             <div className="animate-bounce">
               <ArrowDown size={24} />
             </div>

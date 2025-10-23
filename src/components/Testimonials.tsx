@@ -104,9 +104,10 @@ const Testimonials = () => {
           <div className="relative bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-3xl shadow-2xl p-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               {[
-                { number: '4+', label: 'Progetti Completati' },
+                { number: '7', label: 'Progetti Completati' },
                 { number: '15+', label: 'Tecnologie Padroneggiate' },
                 { number: '100%', label: 'Dedizione' },
+                { number: '95%', label: 'Produttivita con IA'}
               ].map((stat, index) => (
                 <div
                   key={index}

@@ -3,8 +3,10 @@
 import { Mail, Phone, MapPin, Send, CheckCircle, XCircle } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Contact = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -47,11 +49,11 @@ const Contact = () => {
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
         setSubmitStatus('error');
-        setErrorMessage('Si è verificato un errore. Riprova più tardi.');
+        setErrorMessage(t('contact.error'));
       }
     } catch {
       setSubmitStatus('error');
-      setErrorMessage('Impossibile inviare il messaggio. Verifica la tua connessione.');
+      setErrorMessage(t('contact.error'));
     } finally {
       setIsSubmitting(false);
     }
@@ -60,19 +62,19 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
-      title: 'Email',
+      title: t('contact.info.email'),
       content: 'vittoriociampi83@gmail.com',
       link: 'mailto:vittoriociampi83@gmail.com'
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: 'Telefono',
+      title: t('contact.info.phone'),
       content: '+39 339 526 0163',
       link: 'tel:+393395260163'
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: 'Posizione',
+      title: t('contact.info.location'),
       content: 'Aprilia (LT), Italia',
       link: '#'
     }
@@ -103,23 +105,23 @@ const Contact = () => {
     <section id="contact" className="py-16 section-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-header">
-          <h2 className="section-title">Contattami</h2>
+          <h2 className="section-title">{t('contact.title')}</h2>
           <div className="section-underline"></div>
           <p className="section-description">
-            Hai un progetto in mente? Sono sempre interessato a nuove opportunità di collaborazione.
+            {t('contact.description')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="contact-form-card">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Invia un messaggio</h3>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('contact.form.title')}</h3>
 
             {/* Success Message */}
             {submitStatus === 'success' && (
               <div className="alert alert-success">
                 <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                <p>Messaggio inviato con successo! Ti risponderò al più presto.</p>
+                <p>{t('contact.success')}</p>
               </div>
             )}
 
@@ -135,7 +137,7 @@ const Contact = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Nome *
+                    {t('contact.form.name')} *
                   </label>
                   <input
                     type="text"
@@ -145,12 +147,12 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="form-input w-full px-4 py-3 rounded-lg"
-                    placeholder="Il tuo nome"
+                    placeholder={t('contact.form.namePlaceholder')}
                   />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                    Email *
+                    {t('contact.form.email')} *
                   </label>
                   <input
                     type="email"
@@ -160,14 +162,14 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="form-input w-full px-4 py-3 rounded-lg"
-                    placeholder="la-tua-email@esempio.com"
+                    placeholder={t('contact.form.emailPlaceholder')}
                   />
                 </div>
               </div>
 
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Oggetto *
+                  {t('contact.form.subject')} *
                 </label>
                 <input
                   type="text"
@@ -177,13 +179,13 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   className="form-input w-full px-4 py-3 rounded-lg"
-                  placeholder="Oggetto del messaggio"
+                  placeholder={t('contact.form.subjectPlaceholder')}
                 />
               </div>
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Messaggio *
+                  {t('contact.form.message')} *
                 </label>
                 <textarea
                   id="message"
@@ -193,7 +195,7 @@ const Contact = () => {
                   required
                   rows={6}
                   className="form-input w-full px-4 py-3 rounded-lg resize-none"
-                  placeholder="Scrivi qui il tuo messaggio..."
+                  placeholder={t('contact.form.messagePlaceholder')}
                 />
               </div>
               
@@ -205,12 +207,12 @@ const Contact = () => {
                 {isSubmitting ? (
                   <>
                     <div className="spinner"></div>
-                    Invio in corso...
+                    {t('contact.form.sending')}
                   </>
                 ) : (
                   <>
                     <Send className="w-5 h-5" />
-                    Invia messaggio
+                    {t('contact.form.send')}
                   </>
                 )}
               </button>
@@ -220,7 +222,7 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Informazioni di contatto</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('contact.info.title')}</h3>
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <div key={index} className="flex items-start space-x-4">
@@ -242,7 +244,7 @@ const Contact = () => {
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Seguimi sui social</h4>
+              <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">{t('contact.social')}</h4>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
                   <a
@@ -261,16 +263,16 @@ const Contact = () => {
 
             {/* Call to Action */}
             <div className="cta-box">
-              <h4 className="text-lg font-semibold mb-2">Pronto per iniziare un progetto?</h4>
+              <h4 className="text-lg font-semibold mb-2">{t('contact.cta.title')}</h4>
               <p className="cta-box-text mb-4">
-                Contattami per discutere delle tue idee e trasformarle in realtà.
+                {t('contact.cta.description')}
               </p>
               <a
                 href="mailto:vittoriociampi83@gmail.com"
                 className="cta-box-btn"
               >
                 <Mail className="w-4 h-4" />
-                <span>Scrivimi ora</span>
+                <span>{t('contact.cta.button')}</span>
               </a>
             </div>
           </div>

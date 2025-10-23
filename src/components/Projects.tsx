@@ -2,19 +2,29 @@
 
 import { ExternalLink, Github, Smartphone, Globe, Filter } from 'lucide-react';
 import { useState } from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('All');
+  const { t } = useLanguage();
+  const [activeFilter, setActiveFilter] = useState(t('projects.filters.all'));
 
-  const filters = ['All', 'Web App', 'Mobile AI App', 'Full-Stack Enterprise', 'Game Engine', 'E-Commerce', 'Static Website'];
+  const filters = [
+    t('projects.filters.all'),
+    t('projects.filters.webapp'),
+    t('projects.filters.mobileai'),
+    t('projects.filters.fullstack'),
+    t('projects.filters.gameengine'),
+    t('projects.filters.ecommerce'),
+    t('projects.filters.static')
+  ];
 
   const projects = [
     {
       id: 1,
       title: 'TRAVEL MATE',
-      description: 'Web app in Next.js 15 + TypeScript per esplorare destinazioni e pianificare itinerari. API server-side per geocoding, meteo e immagini (Geoapify, OpenWeather, Unsplash/Pexels) con fallback resilienti. Ottimizzazione immagini e performance con Next.js Image, lazy-loading. UI responsive con TailwindCSS e stato globale con React Context e localStorage.',
+      description: t('projects.items.travelmate.description'),
       technologies: ['Next.js 15', 'TypeScript', 'TailwindCSS', 'React Context', 'Geoapify', 'OpenWeather', 'Unsplash'],
-      type: 'Web App',
+      type: t('projects.filters.webapp'),
       icon: <Globe className="w-5 h-5" />,
       github: 'https://github.com/gianfrizio/TravelMate',
       demo: 'https://travel-mate-mu.vercel.app',
@@ -23,9 +33,9 @@ const Projects = () => {
     {
       id: 2,
       title: 'WEB CINEMA AI PRO',
-      description: 'Sistema di raccomandazione cinematografica con architettura microservizi 3-tier (porte 3001/8080/5001). Backend Java Spring Boot 3.2 con Spring Data JPA e REST APIs. AI Engine Python Flask con machine learning e recommendation algorithms. Frontend JavaScript ES6+ con responsive design e real-time filtering. Features: rating system, autocomplete search, user data persistence.',
+      description: t('projects.items.cinema.description'),
       technologies: ['Java 17', 'Spring Boot 3.2', 'Spring Data JPA', 'Python Flask', 'Machine Learning', 'REST APIs', 'JavaScript ES6+'],
-      type: 'Full-Stack Enterprise',
+      type: t('projects.filters.fullstack'),
       icon: <Globe className="w-5 h-5" />,
       github: 'https://github.com/gianfrizio/Web-Cinema-AI-Pro',
       demo: 'https://web-cinema-ai-pro.vercel.app',
@@ -34,9 +44,9 @@ const Projects = () => {
     {
       id: 3,
       title: 'DREAM VISUALIZER',
-      description: 'Applicazione mobile innovativa potenziata da AI. Integrazione API OpenAI - GPT-4 per NLP e DALL-E per generazione arte procedurale. Funzionalità mobile avanzate: autenticazione biometrica, speech-to-text, elaborazione real-time. Architettura sicura con gestione API key e storage crittografato. Deployment cross-platform con interfaccia multilingue. Integrazione backend Firebase per servizi cloud.',
+      description: t('projects.items.dream.description'),
       technologies: ['Flutter', 'Dart', 'OpenAI GPT-4', 'DALL-E', 'Firebase', 'Biometric Auth', 'Speech-to-Text'],
-      type: 'Mobile AI App',
+      type: t('projects.filters.mobileai'),
       icon: <Smartphone className="w-5 h-5" />,
       github: 'https://github.com/gianfrizio/Dream-Visualizer',
       demo: 'https://drive.google.com/file/d/17shX0pZcK7x1rSnE1QUI-U-kisu4-tP0/view?usp=drive_link',
@@ -45,9 +55,9 @@ const Projects = () => {
     {
       id: 4,
       title: 'TETRIS GAME ENGINE',
-      description: 'Implementazione completa game engine con architetture multiple. Due versioni complete: C procedurale e C++ object-oriented. Integrazione SDL2 per rendering real-time, sistema audio e gestione input. Meccaniche di gioco avanzate: rotazioni tetromino, algoritmi eliminazione righe. Gestione memoria ottimizzata e performance tuning. Dimostra padronanza completa dei fondamentali del game development.',
+      description: t('projects.items.tetris.description'),
       technologies: ['C/C++', 'SDL2', 'Game Development', 'OOP', 'Memory Management', 'Graphics Programming'],
-      type: 'Game Engine',
+      type: t('projects.filters.gameengine'),
       icon: <Globe className="w-5 h-5" />,
       github: 'https://github.com/gianfrizio/Tetris',
       demo: 'https://tetris-pi-mocha.vercel.app',
@@ -56,9 +66,9 @@ const Projects = () => {
     {
       id: 5,
       title: 'WATCH FILM - API KEY',
-      description: 'Sito web statico per browsing film utilizzando TheMovieDB API. Architettura modulare JavaScript ES6+ con separazione delle responsabilità (api.js, dom.js, ui.js, events.js). Features avanzate: paginazione dinamica, filtri per genere, ricerca per titolo. Gestione asincrona delle chiamate API con error handling robusto. Design responsive con focus su performance e user experience.',
+      description: t('projects.items.watchfilm.description'),
       technologies: ['JavaScript ES6+', 'HTML5', 'CSS3', 'TheMovieDB API', 'ES Modules', 'Async/Await'],
-      type: 'Web App',
+      type: t('projects.filters.webapp'),
       icon: <Globe className="w-5 h-5" />,
       github: 'https://github.com/gianfrizio/Watch-Film-ApiKey',
       demo: 'https://gianfrizio.github.io/Watch-Film-ApiKey',
@@ -67,9 +77,9 @@ const Projects = () => {
     {
       id: 6,
       title: 'MAGIC PLACE',
-      description: 'E-commerce moderno e interattivo per vendita oggetti magici. Implementazione completa con HTML5 e CSS3 puro, senza framework esterni. Design responsive mobile-first con CSS Grid e Flexbox. Utilizzo avanzato di CSS custom properties, animations e transitions. Features: catalogo prodotti multi-categoria (bacchette, pozioni, libri), form contatti elaborato, effetti glassmorphism, tipografia elegante. Dimostra padronanza completa di modern CSS.',
+      description: t('projects.items.magic.description'),
       technologies: ['HTML5', 'CSS3', 'CSS Grid', 'Flexbox', 'CSS Custom Properties', 'Responsive Design', 'CSS Animations'],
-      type: 'Static Website',
+      type: t('projects.filters.static'),
       icon: <Globe className="w-5 h-5" />,
       github: 'https://github.com/gianfrizio/Magic-Place',
       demo: 'https://gianfrizio.github.io/Magic-Place',
@@ -78,9 +88,9 @@ const Projects = () => {
     {
       id: 7,
       title: 'E-COMMERCE CART',
-      description: 'Demo interattivo di catalogo prodotti e-commerce costruito con React e Vite. Gestione stato con Context API (CartContext, LanguageContext). Features complete: listing prodotti, ricerca avanzata, filtri per categoria, gestione carrello con localStorage persistence, pannello admin per aggiunta prodotti. Supporto internazionalizzazione (i18n) e theme switching (dark/light mode). Upload immagini via URL o file locale. Architettura modulare con CSS modulare per massima manutenibilità.',
+      description: t('projects.items.ecommerce.description'),
       technologies: ['React', 'Vite', 'Context API', 'JavaScript', 'CSS Modules', 'localStorage', 'i18n', 'Responsive Design'],
-      type: 'E-Commerce',
+      type: t('projects.filters.ecommerce'),
       icon: <Globe className="w-5 h-5" />,
       github: 'https://github.com/gianfrizio/E-Commerce-Cart',
       demo: 'https://gianfrizio.github.io/E-Commerce-Cart',
@@ -88,7 +98,7 @@ const Projects = () => {
     }
   ];
 
-  const filteredProjects = activeFilter === 'All'
+  const filteredProjects = activeFilter === t('projects.filters.all')
     ? projects
     : projects.filter(project => project.type === activeFilter);
 
@@ -96,10 +106,10 @@ const Projects = () => {
     <section id="projects" className="py-16 section-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-header">
-          <h2 className="section-title">I miei progetti</h2>
+          <h2 className="section-title">{t('projects.title')}</h2>
           <div className="section-underline"></div>
           <p className="section-description">
-            Ecco una selezione dei progetti che ho sviluppato, dalle applicazioni mobile ai siti web complessi.
+            {t('projects.description')}
           </p>
         </div>
 
@@ -111,7 +121,7 @@ const Projects = () => {
               onClick={() => setActiveFilter(filter)}
               className={`filter-btn ${activeFilter === filter ? 'active' : ''}`}
             >
-              {filter === 'All' && <Filter className="inline w-4 h-4 mr-2" />}
+              {filter === t('projects.filters.all') && <Filter className="inline w-4 h-4 mr-2" />}
               {filter}
             </button>
           ))}
@@ -196,7 +206,7 @@ const Projects = () => {
                       className="flex-1 btn-secondary flex items-center justify-center gap-2"
                     >
                       <Github className="w-4 h-4" />
-                      <span>Codice</span>
+                      <span>{t('projects.code')}</span>
                     </a>
                     <a
                       href={project.demo}
@@ -205,7 +215,7 @@ const Projects = () => {
                       className="flex-1 btn-primary flex items-center justify-center gap-2"
                     >
                       <ExternalLink className="w-4 h-4" />
-                      <span>Demo</span>
+                      <span>{t('projects.demo')}</span>
                     </a>
                   </div>
                 </div>

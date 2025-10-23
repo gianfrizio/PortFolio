@@ -1,65 +1,67 @@
 'use client';
 
 import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Experience = () => {
+  const { t } = useLanguage();
   const experiences = [
     {
       id: 1,
-      title: 'Apprendimento Intensivo Full-Stack',
-      company: 'Autodidatta',
-      location: 'Aprilia (LT), Italia',
-      period: 'Presente',
-      description: 'Percorso di apprendimento intensivo e autodidatta focalizzato su sviluppo full-stack, integrazione AI e sviluppo mobile tramite progetti pratici e portfolio reali.',
+      title: t('experience.items.fullstack.title'),
+      company: t('experience.items.fullstack.company'),
+      location: t('experience.items.fullstack.location'),
+      period: t('experience.items.fullstack.period'),
+      description: t('experience.items.fullstack.description'),
       achievements: [
-        'Padronanza di 15+ tecnologie e framework',
-        'Completamento di 4 progetti portfolio enterprise-grade',
-        'Sviluppo approccio innovativo human-AI hybrid development',
-        'Documentazione tecnica completa per ogni progetto'
+        t('experience.items.fullstack.achievements.0'),
+        t('experience.items.fullstack.achievements.1'),
+        t('experience.items.fullstack.achievements.2'),
+        t('experience.items.fullstack.achievements.3')
       ],
       technologies: ['Java 17', 'Spring Boot', 'React', 'Next.js', 'Flutter', 'Python', 'C/C++', 'SDL2']
     },
     {
       id: 2,
-      title: 'Specializzazione AI Integration',
-      company: 'Progetti Personali',
-      location: 'Remote',
-      period: 'Presente',
-      description: 'Focus su integrazione AI e machine learning in applicazioni pratiche, con particolare attenzione a OpenAI APIs e sistemi di raccomandazione.',
+      title: t('experience.items.ai.title'),
+      company: t('experience.items.ai.company'),
+      location: t('experience.items.ai.location'),
+      period: t('experience.items.ai.period'),
+      description: t('experience.items.ai.description'),
       achievements: [
-        'Implementazione Dream Visualizer con GPT-4 e DALL-E',
-        'Sistema di raccomandazione cinematografica ML-powered',
-        'Integrazione NLP avanzato e speech-to-text',
-        'Architettura microservizi AI-enhanced'
+        t('experience.items.ai.achievements.0'),
+        t('experience.items.ai.achievements.1'),
+        t('experience.items.ai.achievements.2'),
+        t('experience.items.ai.achievements.3')
       ],
       technologies: ['OpenAI GPT-4', 'DALL-E', 'Python Flask', 'Machine Learning', 'NLP', 'Firebase']
     },
     {
       id: 3,
-      title: 'Game Development & Low-Level Programming',
-      company: 'Progetti Portfolio',
-      location: 'Remote',
-      period: 'Presente',
-      description: 'Esplorazione di game development e programmazione low-level attraverso implementazioni complete di game engine.',
+      title: t('experience.items.gamedev.title'),
+      company: t('experience.items.gamedev.company'),
+      location: t('experience.items.gamedev.location'),
+      period: t('experience.items.gamedev.period'),
+      description: t('experience.items.gamedev.description'),
       achievements: [
-        'Tetris Game Engine completo in C procedurale e C++ OOP',
-        'Sistema audio e rendering real-time con SDL2',
-        'Memory management avanzato e ottimizzazioni performance',
-        'Architetture multiple: procedurale vs object-oriented'
+        t('experience.items.gamedev.achievements.0'),
+        t('experience.items.gamedev.achievements.1'),
+        t('experience.items.gamedev.achievements.2'),
+        t('experience.items.gamedev.achievements.3')
       ],
       technologies: ['C/C++', 'SDL2', 'Game Development', 'OOP', 'Memory Management', 'Graphics Programming']
     },
     {
       id: 4,
-      title: 'Diploma di istruzione secondaria superiore in Geometra',
-      company: 'Istituto di Istruzione Superiore "Galilei - Sani"',
-      location: 'Latina (LT), Italia',
-      period: 'Completato',
-      description: 'Formazione scolastica con focus su materie tecniche, disegno tecnico, topografia e costruzioni.',
+      title: t('experience.items.education.title'),
+      company: t('experience.items.education.company'),
+      location: t('experience.items.education.location'),
+      period: t('experience.items.education.period'),
+      description: t('experience.items.education.description'),
       achievements: [
-        'Competenze tecniche in progettazione e disegno',
-        'Precisione e attenzione ai dettagli',
-        'Basi solide in matematica e fisica applicata'
+        t('experience.items.education.achievements.0'),
+        t('experience.items.education.achievements.1'),
+        t('experience.items.education.achievements.2')
       ],
       technologies: ['Disegno Tecnico', 'CAD', 'Topografia', 'Matematica', 'Fisica']
     }
@@ -70,11 +72,11 @@ const Experience = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-header">
           <h2 className="section-title">
-            Il mio Percorso
+            {t('experience.title')}
           </h2>
           <div className="section-underline"></div>
           <p className="section-description">
-            Da autodidatta a sviluppatore competente: il viaggio di apprendimento intensivo e crescita costante.
+            {t('experience.description')}
           </p>
         </div>
 
@@ -124,7 +126,7 @@ const Experience = () => {
                       <div className="mb-4">
                         <h4 className="font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
                           <span className="timeline-dot w-2 h-2 rounded-full"></span>
-                          Risultati Chiave:
+                          {t('experience.achievements')}
                         </h4>
                         <ul className="space-y-2">
                           {exp.achievements.map((achievement, idx) => (

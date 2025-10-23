@@ -1,26 +1,28 @@
 'use client';
 
 import { Code, Database, Smartphone, Globe, GitBranch, Zap } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
+  const { t } = useLanguage();
   const skills = [
     {
-      category: 'Frontend',
+      category: t('about.skills.frontend'),
       icon: <Globe className="w-6 h-6" />,
       technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript ES6+']
     },
     {
-      category: 'Backend',
+      category: t('about.skills.backend'),
       icon: <Database className="w-6 h-6" />,
       technologies: ['Java 17', 'Spring Boot', 'Python', 'Flask', 'Node.js', 'REST APIs', 'JPA/Hibernate']
     },
     {
-      category: 'Mobile & Game',
+      category: t('about.skills.mobile'),
       icon: <Smartphone className="w-6 h-6" />,
       technologies: ['Flutter', 'Dart', 'SDL2', 'C/C++', 'Game Development', 'Firebase']
     },
     {
-      category: 'Tools & AI',
+      category: t('about.skills.tools'),
       icon: <GitBranch className="w-6 h-6" />,
       technologies: ['Git/GitHub', 'Maven', 'VS Code', 'AI Integration', 'OpenAI APIs', 'Android Studio']
     }
@@ -30,21 +32,15 @@ const About = () => {
     <section id="about" className="py-16 section-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="section-header">
-          <h2 className="section-title">Chi sono</h2>
+          <h2 className="section-title">{t('about.title')}</h2>
           <div className="section-underline"></div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">La mia storia</h3>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">{t('about.intro')}</h3>
             <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-6">
-              Sono un autodidatta Software, Mobile & Game Developer.
-              Durante il mio percorso di studi ho assunto svariate competenze
-              specialmente in sviluppo full-stack, implementazione di sistemi IA e
-              sviluppo mobile tramite il mio progetto personale di un’intera App
-              innovativa.
-              Sono una persona volta all’apprendimento ma soprattutto
-              appassionata di questo settore.
+              {t('about.description')}
             </p>
           </div>
 
@@ -52,23 +48,23 @@ const About = () => {
             <div className="grid grid-cols-2 gap-4 max-w-sm">
               <div className="about-card text-center">
                 <Code className="about-icon" />
-                <h4 className="font-semibold text-gray-900 dark:text-white">Clean Code</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-300">Codice leggibile e maintainabile</p>
+                <h4 className="font-semibold text-gray-900 dark:text-white">{t('about.highlights.cleanCode.title')}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{t('about.highlights.cleanCode.description')}</p>
               </div>
               <div className="about-card text-center">
                 <Zap className="about-icon" style={{ color: 'var(--primary-gradient-via)' }} />
-                <h4 className="font-semibold text-gray-900 dark:text-white">Performance</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-300">Ottimizzazione e velocità</p>
+                <h4 className="font-semibold text-gray-900 dark:text-white">{t('about.highlights.performance.title')}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{t('about.highlights.performance.description')}</p>
               </div>
               <div className="about-card text-center">
                 <Smartphone className="about-icon" style={{ color: 'var(--primary-gradient-to)' }} />
-                <h4 className="font-semibold text-gray-900 dark:text-white">Responsive</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-300">Design adattivo</p>
+                <h4 className="font-semibold text-gray-900 dark:text-white">{t('about.highlights.responsive.title')}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{t('about.highlights.responsive.description')}</p>
               </div>
               <div className="about-card text-center">
                 <Database className="about-icon" />
-                <h4 className="font-semibold text-gray-900 dark:text-white">Scalabile</h4>
-                <p className="text-sm text-gray-600 dark:text-gray-300">Architetture robuste</p>
+                <h4 className="font-semibold text-gray-900 dark:text-white">{t('about.highlights.scalable.title')}</h4>
+                <p className="text-sm text-gray-600 dark:text-gray-300">{t('about.highlights.scalable.description')}</p>
               </div>
             </div>
           </div>
@@ -76,7 +72,7 @@ const About = () => {
 
         {/* Skills Section */}
         <div>
-          <h3 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">Le mie competenze</h3>
+          <h3 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">{t('about.skillsTitle')}</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {skills.map((skill) => (
               <div
