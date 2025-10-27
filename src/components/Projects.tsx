@@ -1,8 +1,9 @@
 'use client';
 
-import { ExternalLink, Github, Smartphone, Globe, Filter } from 'lucide-react';
+import { ExternalLink, Github, Smartphone, Globe, Filter, Plane, Film, Gamepad2, Video, Sparkles, ShoppingCart } from 'lucide-react';
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Image from 'next/image';
 
 const Projects = () => {
   const { t } = useLanguage();
@@ -21,10 +22,11 @@ const Projects = () => {
       description: t('projects.items.travelmate.description'),
       technologies: ['Next.js 15', 'TypeScript', 'TailwindCSS', 'React Context', 'Geoapify', 'OpenWeather', 'Unsplash'],
       type: 'webapp',
-      icon: <Globe className="w-5 h-5" />,
+      icon: <Plane className="w-10 h-10" />,
+      iconColor: 'text-sky-500',
       github: 'https://github.com/gianfrizio/TravelMate',
       demo: 'https://travel-mate-mu.vercel.app',
-      image: '/api/placeholder/400/300'
+      image: '/images/projects/travelmate.png'
     },
     {
       id: 2,
@@ -32,21 +34,22 @@ const Projects = () => {
       description: t('projects.items.cinema.description'),
       technologies: ['Java 17', 'Spring Boot 3.2', 'Spring Data JPA', 'Python Flask', 'Machine Learning', 'REST APIs', 'JavaScript ES6+'],
   type: 'fullstack',
-      icon: <Globe className="w-5 h-5" />,
+      icon: <Film className="w-10 h-10" />,
+      iconColor: 'text-red-500',
       github: 'https://github.com/gianfrizio/Web-Cinema-AI-Pro',
       demo: 'https://web-cinema-ai-pro.vercel.app',
-      image: '/api/placeholder/400/300'
+      image: '/images/projects/cinema.png'
     },
     {
       id: 3,
-      title: 'DREAM VISUALIZER',
+      title: 'DREAMSY',
       description: t('projects.items.dream.description'),
       technologies: ['Flutter', 'Dart', 'OpenAI GPT-4', 'DALL-E', 'Firebase', 'Biometric Auth', 'Speech-to-Text'],
   type: 'mobileai',
-      icon: <Smartphone className="w-5 h-5" />,
+      iconImage: '/images/projects/icons/dream.png',
       github: 'https://github.com/gianfrizio/Dream-Visualizer',
       demo: 'https://drive.google.com/file/d/17shX0pZcK7x1rSnE1QUI-U-kisu4-tP0/view?usp=drive_link',
-      image: '/api/placeholder/400/300'
+      image: '/images/projects/dream.png'
     },
     {
       id: 4,
@@ -54,10 +57,11 @@ const Projects = () => {
       description: t('projects.items.tetris.description'),
       technologies: ['C/C++', 'SDL2', 'Game Development', 'OOP', 'Memory Management', 'Graphics Programming'],
   type: 'gameengine',
-      icon: <Globe className="w-5 h-5" />,
+      icon: <Gamepad2 className="w-10 h-10" />,
+      iconColor: 'text-purple-500',
       github: 'https://github.com/gianfrizio/Tetris',
       demo: 'https://tetris-pi-mocha.vercel.app',
-      image: '/api/placeholder/400/300'
+      image: '/images/projects/tetris.png'
     },
     {
       id: 5,
@@ -65,10 +69,11 @@ const Projects = () => {
       description: t('projects.items.watchfilm.description'),
       technologies: ['JavaScript ES6+', 'HTML5', 'CSS3', 'TheMovieDB API', 'ES Modules', 'Async/Await'],
   type: 'webapp',
-      icon: <Globe className="w-5 h-5" />,
+      icon: <Video className="w-10 h-10" />,
+      iconColor: 'text-orange-500',
       github: 'https://github.com/gianfrizio/Watch-Film-ApiKey',
       demo: 'https://gianfrizio.github.io/Watch-Film-ApiKey',
-      image: '/api/placeholder/400/300'
+      image: '/images/projects/watchfilm.png'
     },
     {
       id: 6,
@@ -76,10 +81,11 @@ const Projects = () => {
       description: t('projects.items.magic.description'),
       technologies: ['HTML5', 'CSS3', 'CSS Grid', 'Flexbox', 'CSS Custom Properties', 'Responsive Design', 'CSS Animations'],
   type: 'static',
-      icon: <Globe className="w-5 h-5" />,
+      icon: <Sparkles className="w-10 h-10" />,
+      iconColor: 'text-pink-500',
       github: 'https://github.com/gianfrizio/Magic-Place',
       demo: 'https://gianfrizio.github.io/Magic-Place',
-      image: '/api/placeholder/400/300'
+      image: '/images/projects/magic.png'
     },
     {
       id: 7,
@@ -87,10 +93,11 @@ const Projects = () => {
       description: t('projects.items.ecommerce.description'),
       technologies: ['React', 'Vite', 'Context API', 'JavaScript', 'CSS Modules', 'localStorage', 'i18n', 'Responsive Design'],
   type: 'ecommerce',
-      icon: <Globe className="w-5 h-5" />,
+      icon: <ShoppingCart className="w-10 h-10" />,
+      iconColor: 'text-green-500',
       github: 'https://github.com/gianfrizio/E-Commerce-Cart',
       demo: 'https://gianfrizio.github.io/E-Commerce-Cart',
-      image: '/api/placeholder/400/300'
+      image: '/images/projects/ecommerce.png'
     }
   ];
 
@@ -132,22 +139,35 @@ const Projects = () => {
               <div className="relative rounded-2xl overflow-hidden">
                 {/* Project Image with Enhanced Hover */}
                 <div className="project-image-bg relative h-56 overflow-hidden">
+                  {/* Project Demo Image */}
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} demo`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
 
-                  {/* Animated background pattern */}
-                  <div className="absolute inset-0 opacity-20">
-                    <div className="absolute top-0 left-0 w-full h-full"
-                      style={{
-                        backgroundImage: 'radial-gradient(circle, #3b82f6 1px, transparent 1px)',
-                        backgroundSize: '30px 30px'
-                      }}
-                    ></div>
-                  </div>
+                  {/* Gradient overlay for better text visibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/20"></div>
 
                   <div className="relative z-10 h-full flex flex-col items-center justify-center text-center p-6">
-                    <div className="card w-20 h-20 flex items-center justify-center rounded-2xl mb-4 shadow-2xl hover:scale-110 hover:rotate-6 transition-transform duration-300">
-                      {project.icon}
+                    <div className="card w-20 h-20 flex items-center justify-center rounded-2xl mb-4 shadow-2xl hover:scale-110 hover:rotate-6 transition-transform duration-300 bg-white/90 dark:bg-gray-800/90 relative overflow-hidden">
+                      {project.iconImage ? (
+                        <Image
+                          src={project.iconImage}
+                          alt={`${project.title} icon`}
+                          fill
+                          className="object-contain p-2"
+                          sizes="80px"
+                        />
+                      ) : (
+                        <div className={project.iconColor}>
+                          {project.icon}
+                        </div>
+                      )}
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-800 dark:text-white">{project.title}</h3>
+                    <h3 className="text-2xl font-bold text-white drop-shadow-lg">{project.title}</h3>
                   </div>
 
                   {/* Overlay with actions */}

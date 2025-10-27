@@ -11,12 +11,12 @@ const Skills = () => {
       icon: <Layout className="w-6 h-6" />,
       color: 'from-orange-500 to-amber-500 dark:from-blue-500 dark:to-cyan-500',
       skills: [
-        { name: 'Java 17 - Spring Boot 3.2', level: 92 },
-        { name: 'Python 3.11+ - Flask', level: 88 },
-        { name: 'JavaScript ES6+', level: 90 },
-        { name: 'TypeScript (ESNext/v5)', level: 87 },
-        { name: 'C/C++ - SDL2', level: 85 },
-        { name: 'Dart/Flutter', level: 88 }
+        { name: 'Java 17 - Spring Boot 3.2', level: 52 },
+        { name: 'Python 3.11+ - Flask', level: 50 },
+        { name: 'JavaScript ES6+', level: 70 },
+        { name: 'TypeScript (ESNext/v5)', level: 65 },
+        { name: 'C/C++ - SDL2', level: 75 },
+        { name: 'Dart/Flutter', level: 78 }
       ]
     },
     {
@@ -24,11 +24,11 @@ const Skills = () => {
       icon: <Server className="w-6 h-6" />,
       color: 'from-yellow-500 to-amber-500 dark:from-green-500 dark:to-emerald-500',
       skills: [
-        { name: t('skills.items.react'), level: 90 },
-        { name: t('skills.items.nextjs'), level: 88 },
-        { name: t('skills.items.htmlCss'), level: 92 },
-        { name: t('skills.items.responsive'), level: 90 },
-        { name: t('skills.items.animations'), level: 85 }
+        { name: t('skills.items.react'), level: 72 },
+        { name: t('skills.items.nextjs'), level: 71 },
+        { name: t('skills.items.htmlCss'), level: 73 },
+        { name: t('skills.items.responsive'), level: 78 },
+        { name: t('skills.items.animations'), level: 79 }
       ]
     },
     {
@@ -36,11 +36,11 @@ const Skills = () => {
       icon: <Database className="w-6 h-6" />,
       color: 'from-orange-600 to-red-500 dark:from-orange-500 dark:to-red-500',
       skills: [
-        { name: 'Spring Data JPA', level: 88 },
-        { name: 'REST APIs', level: 90 },
-        { name: t('skills.items.microservices'), level: 85 },
-        { name: 'SQL, JPA/Hibernate', level: 87 },
-        { name: 'Firebase Integration', level: 88 }
+        { name: 'Spring Data JPA', level: 51 },
+        { name: 'REST APIs', level: 58 },
+        { name: t('skills.items.microservices'), level: 53 },
+        { name: 'SQL, JPA/Hibernate', level: 50 },
+        { name: 'Firebase Integration', level: 52 }
       ]
     },
     {
@@ -48,11 +48,11 @@ const Skills = () => {
       icon: <Smartphone className="w-6 h-6" />,
       color: 'from-amber-500 to-yellow-500 dark:from-purple-500 dark:to-pink-500',
       skills: [
-        { name: t('skills.items.fullstack'), level: 90 },
-        { name: t('skills.items.gamedev'), level: 85 },
-        { name: t('skills.items.aiIntegration'), level: 87 },
-        { name: t('skills.items.mobiledev'), level: 88 },
-        { name: t('skills.items.performance'), level: 86 }
+        { name: t('skills.items.fullstack'), level: 58 },
+        { name: t('skills.items.gamedev'), level: 65 },
+        { name: t('skills.items.aiIntegration'), level: 80 },
+        { name: t('skills.items.mobiledev'), level: 82 },
+        { name: t('skills.items.performance'), level: 77 }
       ]
     },
     {
@@ -61,10 +61,10 @@ const Skills = () => {
       color: 'from-orange-700 to-amber-700 dark:from-gray-700 dark:to-gray-900',
       skills: [
         { name: 'Git/GitHub', level: 92 },
-        { name: 'Maven', level: 88 },
-        { name: 'VS Code, Android Studio', level: 90 },
-        { name: t('skills.items.aiDev'), level: 95 },
-        { name: t('skills.items.architecture'), level: 87 }
+        { name: 'Maven', level: 56 },
+        { name: 'VS Code, Android Studio', level: 95 },
+        { name: t('skills.items.aiDev'), level: 96 },
+        { name: t('skills.items.architecture'), level: 64 }
       ]
     },
     {
