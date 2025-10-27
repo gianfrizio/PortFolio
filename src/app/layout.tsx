@@ -28,8 +28,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Vittorio Ciampi - Full Stack, Mobile & Game Developer Portfolio",
-  description: "Portfolio professionale di Vittorio Ciampi - Junior Software Developer specializzato in Full Stack, game development, integrazione AI. Competenze in Java, Spring Boot, Python, Flutter, React, Next.js, C/C++, SDL2.",
-  keywords: ["Full Stack Developer", "Mobile Developer", "Game Developer", "AI Integration", "Java", "Spring Boot", "Python", "Flutter", "React", "Next.js", "C++", "SDL2", "Vittorio Ciampi"],
+  description: "Portfolio professionale di Vittorio Ciampi - Junior Software Developer specializzato in Full Stack, game development, integrazione AI. Competenze in Node, MongoDB, Express, Flutter, React, Next.js, C/C++, SDL2.",
+  keywords: ["Full Stack Developer", "Mobile Developer", "Game Developer", "AI Integration", "Node", "MongoDB", "Express", "Flutter", "React", "Next.js", "C++", "SDL2", "Vittorio Ciampi"],
   authors: [{ name: "Vittorio Ciampi" }],
   robots: {
     index: true,

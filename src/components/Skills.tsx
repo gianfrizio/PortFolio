@@ -11,10 +11,8 @@ const Skills = () => {
       icon: <Layout className="w-6 h-6" />,
       color: 'from-orange-500 to-amber-500 dark:from-blue-500 dark:to-cyan-500',
       skills: [
-        { name: 'Java 17 - Spring Boot 3.2', level: 52 },
-        { name: 'Python 3.11+ - Flask', level: 50 },
         { name: 'JavaScript ES6+', level: 70 },
-        { name: 'TypeScript (ESNext/v5)', level: 65 },
+        { name: 'TypeScript (ESNext/v5)', level: 68 },
         { name: 'C/C++ - SDL2', level: 75 },
         { name: 'Dart/Flutter', level: 78 }
       ]
@@ -26,7 +24,7 @@ const Skills = () => {
       skills: [
         { name: t('skills.items.react'), level: 72 },
         { name: t('skills.items.nextjs'), level: 71 },
-        { name: t('skills.items.htmlCss'), level: 73 },
+        { name: t('skills.items.htmlCss'), level: 80 },
         { name: t('skills.items.responsive'), level: 78 },
         { name: t('skills.items.animations'), level: 79 }
       ]
@@ -36,10 +34,10 @@ const Skills = () => {
       icon: <Database className="w-6 h-6" />,
       color: 'from-orange-600 to-red-500 dark:from-orange-500 dark:to-red-500',
       skills: [
-        { name: 'Spring Data JPA', level: 51 },
-        { name: 'REST APIs', level: 58 },
-        { name: t('skills.items.microservices'), level: 53 },
-        { name: 'SQL, JPA/Hibernate', level: 50 },
+        { name: 'Node.js', level: 65 },
+        { name: 'Express.js', level: 65 },
+        { name: 'REST APIs', level: 67 },
+        { name: 'MongoDB', level: 60 },
         { name: 'Firebase Integration', level: 52 }
       ]
     },
@@ -61,7 +59,6 @@ const Skills = () => {
       color: 'from-orange-700 to-amber-700 dark:from-gray-700 dark:to-gray-900',
       skills: [
         { name: 'Git/GitHub', level: 92 },
-        { name: 'Maven', level: 56 },
         { name: 'VS Code, Android Studio', level: 95 },
         { name: t('skills.items.aiDev'), level: 96 },
         { name: t('skills.items.architecture'), level: 64 }

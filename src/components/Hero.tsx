@@ -114,6 +114,7 @@ const Hero = () => {
               {[
                 { number: '7', label: t('hero.stats.projects') },
                 { number: '15+', label: t('hero.stats.technologies') },
+                { number: '2', label: t('skills.stats.courses') },
               ].map((stat, index) => (
                 <div key={index} className="text-center lg:text-left">
                   <div className="text-3xl font-bold stat-number">

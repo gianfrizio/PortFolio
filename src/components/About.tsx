@@ -9,12 +9,12 @@ const About = () => {
     {
       category: t('about.skills.frontend'),
       icon: <Globe className="w-6 h-6" />,
-      technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript ES6+']
+      technologies: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript ES6+']
     },
     {
       category: t('about.skills.backend'),
       icon: <Database className="w-6 h-6" />,
-      technologies: ['Java 17', 'Spring Boot', 'Python', 'Flask', 'Node.js', 'REST APIs', 'JPA/Hibernate']
+      technologies: ['Node', 'Express', 'MongoDB', 'REST APIs']
     },
     {
       category: t('about.skills.mobile'),
