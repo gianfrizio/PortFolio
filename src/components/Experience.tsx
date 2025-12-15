@@ -79,6 +79,21 @@ const Experience = () => {
         t('experience.items.gamedev.achievements.3')
       ],
       technologies: ['C/C++', 'SDL2', 'Game Development', 'OOP', 'Memory Management', 'Graphics Programming']
+    },
+    {
+      id: 6,
+      title: t('experience.items.mobile.title'),
+      company: t('experience.items.mobile.company'),
+      location: t('experience.items.mobile.location'),
+      period: t('experience.items.mobile.period'),
+      description: t('experience.items.mobile.description'),
+      achievements: [
+        t('experience.items.mobile.achievements.0'),
+        t('experience.items.mobile.achievements.1'),
+        t('experience.items.mobile.achievements.2'),
+        t('experience.items.mobile.achievements.3')
+      ],
+      technologies: ['React Native', 'Expo', 'TypeScript', 'JavaScript', 'EAS Build', 'Context API', 'AsyncStorage']
     }
   ];
 

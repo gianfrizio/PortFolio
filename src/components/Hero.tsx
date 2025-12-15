@@ -186,6 +186,7 @@ const Hero = () => {
                     width={320}
                     height={320}
                     className="object-cover w-full h-full rounded-full"
+                    style={{ objectPosition: 'center 30%' }}
                     priority
                   />
                 </div>
