@@ -83,12 +83,12 @@ const Hero = () => {
           {/* Text Content */}
           <div className="text-center lg:text-left">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm shadow-lg mb-6">
-              <Sparkles className="w-4 h-4 text-yellow-500" />
-              <span className={`text-sm font-medium ${theme !== 'dark' ? 'text-white' : 'text-gray-300'}`}>
-                {t('hero.badge')}
-              </span>
-            </div>
+              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${theme === 'dark' ? 'bg-slate-800/80' : 'bg-white'} backdrop-blur-sm shadow-lg mb-6`}>
+                <Sparkles className="w-4 h-4 text-yellow-500" />
+                <span className={`text-sm font-medium ${theme === 'dark' ? 'text-gray-200' : 'text-gray-900'}`}>
+                  {t('hero.badge')}
+                </span>
+              </div>
 
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
               <span className="relative inline-block">

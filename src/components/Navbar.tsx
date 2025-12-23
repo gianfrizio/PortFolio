@@ -6,9 +6,11 @@ import { Menu, X } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import LanguageToggle from './LanguageToggle';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useTheme } from '@/contexts/ThemeContext';
 
 const Navbar = () => {
   const { t } = useLanguage();
+  const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [scrolled, setScrolled] = useState(false);
@@ -103,7 +105,7 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden overflow-hidden animate-slideDown">
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-lg mb-2">
+            <div className={`px-2 pt-2 pb-3 space-y-1 ${theme === 'dark' ? 'bg-slate-900/95' : 'bg-white/95'} backdrop-blur-md rounded-lg mb-2`}>
               {navItems.map((item) => {
                 const isActive = activeSection === item.href.substring(1);
                 return (
