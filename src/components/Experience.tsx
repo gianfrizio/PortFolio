@@ -94,6 +94,21 @@ const Experience = () => {
         t('experience.items.mobile.achievements.3')
       ],
       technologies: ['React Native', 'Expo', 'TypeScript', 'JavaScript', 'EAS Build', 'Context API', 'AsyncStorage']
+    },
+    {
+      id: 7,
+      title: t('experience.items.flutter.title'),
+      company: t('experience.items.flutter.company'),
+      location: t('experience.items.flutter.location'),
+      period: t('experience.items.flutter.period'),
+      description: t('experience.items.flutter.description'),
+      achievements: [
+        t('experience.items.flutter.achievements.0'),
+        t('experience.items.flutter.achievements.1'),
+        t('experience.items.flutter.achievements.2'),
+        t('experience.items.flutter.achievements.3')
+      ],
+      technologies: ['Flutter', 'Dart', 'Material Design', 'State Management', 'REST APIs', 'iOS/Android']
     }
   ];
 

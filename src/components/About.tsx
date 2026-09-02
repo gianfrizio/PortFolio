@@ -9,7 +9,7 @@ const About = () => {
     {
       category: t('about.skills.frontend'),
       icon: <Globe className="w-6 h-6" />,
-      technologies: ['React.js', 'Next.js', 'TypeScript', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript ES6+']
+      technologies: ['React.js', 'Next.js', 'TypeScript', 'Flutter', 'Tailwind CSS', 'HTML5', 'CSS3', 'JavaScript ES6+']
     },
     {
       category: t('about.skills.backend'),

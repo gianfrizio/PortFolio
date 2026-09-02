@@ -25,6 +25,7 @@ const Skills = () => {
         { name: t('skills.items.react'), level: 72 },
         { name: t('skills.items.nextjs'), level: 71 },
         { name: 'React Native Expo', level: 70 },
+        { name: 'Flutter', level: 75 },
         { name: t('skills.items.htmlCss'), level: 80 },
         { name: t('skills.items.responsive'), level: 78 },
         { name: t('skills.items.animations'), level: 79 }
